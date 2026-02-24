@@ -42,7 +42,7 @@ const switchHref = withLocale(current, switchTo);
         <span class="hidden text-xs text-ink-800/70 sm:inline">{site.nameEn}</span>
       </a>
 
-      <details class="relative md:hidden">
+      <details class="relative md:hidden" data-mobile-menu>
         <summary
           class="list-none rounded-full border border-black/10 bg-white/40 px-3 py-2 text-sm font-medium text-ink-950 transition hover:bg-white/70"
           aria-label={locale === 'en' ? 'Open menu' : '打开菜单'}
@@ -81,6 +81,35 @@ const switchHref = withLocale(current, switchTo);
           </nav>
         </div>
       </details>
+
+      <script is:inline>
+        (() => {
+          const details = document.querySelector('details[data-mobile-menu]');
+          if (!details) return;
+
+          const close = () => {
+            details.removeAttribute('open');
+          };
+
+          document.addEventListener('click', (e) => {
+            if (!details.hasAttribute('open')) return;
+            const target = e.target;
+            if (!(target instanceof Node)) return;
+            if (!details.contains(target)) close();
+          });
+
+          document.addEventListener('keydown', (e) => {
+            if (!details.hasAttribute('open')) return;
+            if (e.key === 'Escape') close();
+          });
+
+          details.addEventListener('click', (e) => {
+            const target = e.target;
+            if (!(target instanceof HTMLElement)) return;
+            if (target.closest('a')) close();
+          });
+        })();
+      </script>
 
       <nav class="hidden items-center gap-1 md:flex">
         {nav.map((item) => {
