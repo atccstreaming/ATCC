@@ -42,6 +42,46 @@ const switchHref = withLocale(current, switchTo);
         <span class="hidden text-xs text-ink-800/70 sm:inline">{site.nameEn}</span>
       </a>
 
+      <details class="relative md:hidden">
+        <summary
+          class="list-none rounded-full border border-black/10 bg-white/40 px-3 py-2 text-sm font-medium text-ink-950 transition hover:bg-white/70"
+          aria-label={locale === 'en' ? 'Open menu' : '打开菜单'}
+        >
+          {locale === 'en' ? 'Menu' : '菜单'}
+        </summary>
+        <div class="absolute right-0 mt-2 w-56 overflow-hidden rounded-2xl border border-black/10 bg-white/95 shadow-soft backdrop-blur">
+          <nav class="flex flex-col p-2">
+            {nav.map((item) => {
+              const active = currentPath === item.href;
+              return (
+                <a
+                  href={withBasePath(item.href)}
+                  class:list={[
+                    'rounded-xl px-3 py-2 text-sm transition',
+                    active ? 'bg-ink-950 text-parchment-50' : 'text-ink-900/80 hover:bg-black/5 hover:text-ink-950'
+                  ]}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
+            <div class="my-1 border-t border-black/10" />
+            <a
+              href={withBasePath(switchHref)}
+              class="rounded-xl px-3 py-2 text-sm font-medium text-ink-950/90 transition hover:bg-black/5"
+            >
+              {locale === 'en' ? '中文' : 'EN'}
+            </a>
+            <a
+              href={withBasePath(locale === 'en' ? '/en/visit' : '/visit')}
+              class="rounded-xl bg-cinnabar-500 px-3 py-2 text-sm font-medium text-white shadow-soft transition hover:bg-cinnabar-600"
+            >
+              {locale === 'en' ? 'Plan a Visit' : '欢迎来访'}
+            </a>
+          </nav>
+        </div>
+      </details>
+
       <nav class="hidden items-center gap-1 md:flex">
         {nav.map((item) => {
           const active = currentPath === item.href;
