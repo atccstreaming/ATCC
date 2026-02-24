@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://atccstreaming.github.io',
-  base: '/ATCC',
+  site: 'https://agapetrianglechinesechurch.org',
+  base: '/',
   integrations: [tailwind()],
 });
