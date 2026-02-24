@@ -49,7 +49,7 @@ const switchHref = withLocale(current, switchTo);
         >
           {locale === 'en' ? 'Menu' : '菜单'}
         </summary>
-        <div class="absolute right-0 mt-2 w-56 overflow-hidden rounded-2xl border border-black/10 bg-white/95 shadow-soft backdrop-blur">
+        <div class="absolute left-1/2 mt-2 w-52 max-w-[calc(100vw-2rem)] -translate-x-1/2 overflow-hidden rounded-2xl border border-black/10 bg-white/95 shadow-soft backdrop-blur">
           <nav class="flex flex-col p-2">
             {nav.map((item) => {
               const active = currentPath === item.href;
