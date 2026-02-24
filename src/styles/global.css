@@ -12,7 +12,7 @@ body {
     radial-gradient(circle at 20% 10%, rgba(31, 138, 112, 0.08), transparent 55%),
     radial-gradient(circle at 80% 90%, rgba(226, 61, 40, 0.06), transparent 60%),
     linear-gradient(rgba(255, 251, 242, 0.88), rgba(255, 251, 242, 0.88)),
-    url('/images/background.png');
+    var(--bg-image);
   background-size: auto, auto, auto, cover;
   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
   background-position: center, center, center, center;

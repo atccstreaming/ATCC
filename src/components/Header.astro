@@ -1,9 +1,10 @@
 ---
 import Container from './Container.astro';
 import { getSite } from '../content/site';
-import { getLocaleFromPathname, withLocale, type Locale } from '../i18n';
+import { getLocaleFromPathname, stripBasePath, withBasePath, withLocale, type Locale } from '../i18n';
 
 const current = Astro.url.pathname;
+const currentPath = stripBasePath(current);
 const locale: Locale = getLocaleFromPathname(current);
 const site = getSite(locale);
 
@@ -36,17 +37,17 @@ const switchHref = withLocale(current, switchTo);
 <header class="sticky top-0 z-50 border-b border-black/5 bg-parchment-50/80 backdrop-blur">
   <Container class="py-4">
     <div class="flex items-center justify-between gap-4">
-      <a href={locale === 'en' ? '/en' : '/'} class="group flex items-baseline gap-2">
+      <a href={withBasePath(locale === 'en' ? '/en' : '/')} class="group flex items-baseline gap-2">
         <span class="font-serif text-lg tracking-wide text-ink-950">{site.name}</span>
         <span class="hidden text-xs text-ink-800/70 sm:inline">{site.nameEn}</span>
       </a>
 
       <nav class="hidden items-center gap-1 md:flex">
         {nav.map((item) => {
-          const active = current === item.href;
+          const active = currentPath === item.href;
           return (
             <a
-              href={item.href}
+              href={withBasePath(item.href)}
               class:list={[
                 'rounded-full px-3 py-2 text-sm transition',
                 active
@@ -62,7 +63,7 @@ const switchHref = withLocale(current, switchTo);
 
       <div class="flex items-center gap-2">
         <a
-          href={switchHref}
+          href={withBasePath(switchHref)}
           class="rounded-full border border-black/10 bg-white/40 px-3 py-2 text-sm font-medium text-ink-950 transition hover:bg-white/70"
           aria-label="Switch language"
         >
@@ -70,7 +71,7 @@ const switchHref = withLocale(current, switchTo);
         </a>
 
         <a
-          href={locale === 'en' ? '/en/visit' : '/visit'}
+          href={withBasePath(locale === 'en' ? '/en/visit' : '/visit')}
           class="rounded-full bg-cinnabar-500 px-4 py-2 text-sm font-medium text-white shadow-soft transition hover:bg-cinnabar-600"
         >
           {locale === 'en' ? 'Plan a Visit' : '欢迎来访'}

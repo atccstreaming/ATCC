@@ -1,7 +1,7 @@
 ---
 import Container from './Container.astro';
 import { getSite } from '../content/site';
-import { getLocaleFromPathname, type Locale } from '../i18n';
+import { getLocaleFromPathname, withBasePath, type Locale } from '../i18n';
 const year = new Date().getFullYear();
 
 const current = Astro.url.pathname;
@@ -47,8 +47,8 @@ const site = getSite(locale);
     <div class="mt-10 flex flex-col gap-2 border-t border-black/5 pt-6 text-xs text-ink-900/60 sm:flex-row sm:items-center sm:justify-between">
       <div>Copyright © {year} {site.nameEn} - All Rights Reserved.</div>
       <div class="flex gap-4">
-        <a class="hover:text-ink-950" href={locale === 'en' ? '/en/privacy-policy' : '/privacy-policy'}>Privacy Policy</a>
-        <a class="hover:text-ink-950" href={locale === 'en' ? '/en/terms-and-conditions' : '/terms-and-conditions'}>Terms and Conditions</a>
+        <a class="hover:text-ink-950" href={withBasePath(locale === 'en' ? '/en/privacy-policy' : '/privacy-policy')}>Privacy Policy</a>
+        <a class="hover:text-ink-950" href={withBasePath(locale === 'en' ? '/en/terms-and-conditions' : '/terms-and-conditions')}>Terms and Conditions</a>
       </div>
     </div>
   </Container>

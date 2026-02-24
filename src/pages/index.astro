@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Container from '../components/Container.astro';
 import SectionTitle from '../components/SectionTitle.astro';
 import { getSite } from '../content/site';
+import { withBasePath } from '../i18n';
 
 const site = getSite('zh');
 ---
@@ -13,7 +14,7 @@ const site = getSite('zh');
       <div class="grid items-center gap-10 lg:grid-cols-2">
         <div>
           <img
-            src="/logo.png"
+            src={withBasePath('/logo.png')}
             alt="仁爱三角区教会 Logo"
             class="mb-3 h-20 w-auto opacity-95 sm:h-24"
             loading="eager"
@@ -31,13 +32,13 @@ const site = getSite('zh');
 
           <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
-              href="/visit"
+              href={withBasePath('/visit')}
               class="rounded-full bg-ink-950 px-6 py-3 text-sm font-medium text-parchment-50 shadow-soft transition hover:bg-ink-900"
             >
               查看聚会信息
             </a>
             <a
-              href="/contact"
+              href={withBasePath('/contact')}
               class="rounded-full border border-black/10 bg-white/40 px-6 py-3 text-sm font-medium text-ink-950 transition hover:bg-white/70"
             >
               联系我们
@@ -94,7 +95,7 @@ const site = getSite('zh');
         <div class="rounded-3xl border border-black/10 bg-white/40 p-6 shadow-soft lg:col-span-1">
           <div class="flex items-center gap-4">
             <img
-              src="/images/pastor.png"
+              src={withBasePath('/images/pastor.png')}
               alt={`${site.leader.name} 照片`}
               class="h-16 w-16 rounded-2xl object-cover ring-1 ring-black/10"
               loading="lazy"
@@ -105,7 +106,7 @@ const site = getSite('zh');
           <div class="mt-2 text-sm text-ink-900/70">传道</div>
           <a
             class="mt-6 inline-flex rounded-full bg-cinnabar-500 px-4 py-2 text-sm font-medium text-white shadow-soft transition hover:bg-cinnabar-600"
-            href="/about"
+            href={withBasePath('/about')}
           >
             查看更多
           </a>
@@ -130,10 +131,10 @@ const site = getSite('zh');
             </div>
           </div>
           <div class="flex flex-col gap-3 sm:flex-row sm:justify-end">
-            <a href="/visit" class="rounded-full bg-parchment-50 px-6 py-3 text-sm font-medium text-ink-950 transition hover:bg-white">
+            <a href={withBasePath('/visit')} class="rounded-full bg-parchment-50 px-6 py-3 text-sm font-medium text-ink-950 transition hover:bg-white">
               聚会信息
             </a>
-            <a href="/give" class="rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-parchment-50 transition hover:bg-white/10">
+            <a href={withBasePath('/give')} class="rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-parchment-50 transition hover:bg-white/10">
               支持事工
             </a>
           </div>

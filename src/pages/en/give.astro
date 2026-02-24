@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Container from '../../components/Container.astro';
 import SectionTitle from '../../components/SectionTitle.astro';
+import { withBasePath } from '../../i18n';
 ---
 <BaseLayout title="Give" description="Support our mission in the Triangle">
   <Container class="py-14 sm:py-20">
@@ -15,7 +16,7 @@ import SectionTitle from '../../components/SectionTitle.astro';
         </p>
         <div class="mt-6 flex flex-col gap-3 sm:flex-row">
           <a href="#" class="rounded-full bg-cinnabar-500 px-6 py-3 text-center text-sm font-medium text-white shadow-soft transition hover:bg-cinnabar-600">Donate Now</a>
-          <a href="/en/contact" class="rounded-full border border-black/10 bg-white/40 px-6 py-3 text-center text-sm font-medium text-ink-950 transition hover:bg-white/70">Ask about giving</a>
+          <a href={withBasePath('/en/contact')} class="rounded-full border border-black/10 bg-white/40 px-6 py-3 text-center text-sm font-medium text-ink-950 transition hover:bg-white/70">Ask about giving</a>
         </div>
       </section>
 
