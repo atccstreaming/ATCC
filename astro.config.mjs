@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://agapetrianglechinesechurch.org',
+  site: 'https://www.agapetrianglechinesechurch.org',
   base: '/',
   integrations: [tailwind()],
 });
