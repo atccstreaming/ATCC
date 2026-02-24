@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/Container.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+---
+<BaseLayout title="奉献" description="支持我们在 Agape Triangle 的使命">
+  <Container class="py-14 sm:py-20">
+    <SectionTitle eyebrow="GIVE" title="支持我们在 Agape Triangle 的使命" subtitle="谢谢你与我们同工，一同推进福音事工。" />
+
+    <div class="mx-auto mt-12 grid max-w-5xl gap-6 lg:grid-cols-2">
+      <section class="rounded-3xl border border-black/10 bg-white/40 p-7 shadow-soft">
+        <h3 class="font-serif text-2xl text-ink-950">奉献说明</h3>
+        <p class="mt-4 text-sm leading-7 text-ink-900/70">
+          你可以通过线上或线下方式奉献。此页面为模板；接入实际奉献平台（如 Zelle、PayPal、Stripe 或教会会计系统）后，替换下方按钮链接即可。
+        </p>
+        <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+          <a href="#" class="rounded-full bg-cinnabar-500 px-6 py-3 text-center text-sm font-medium text-white shadow-soft transition hover:bg-cinnabar-600">Donate Now</a>
+          <a href="/contact" class="rounded-full border border-black/10 bg-white/40 px-6 py-3 text-center text-sm font-medium text-ink-950 transition hover:bg-white/70">咨询奉献方式</a>
+        </div>
+      </section>
+
+      <section class="rounded-3xl border border-black/10 bg-white/40 p-7 shadow-soft">
+        <h3 class="font-serif text-2xl text-ink-950">奉献用途（示例）</h3>
+        <ul class="mt-5 list-disc space-y-2 pl-5 text-sm leading-7 text-ink-900/70">
+          <li>本地宣教与福音外展</li>
+          <li>主日与团契聚会支持</li>
+          <li>关怀与牧养事工</li>
+          <li>场地与行政开销</li>
+        </ul>
+      </section>
+    </div>
+  </Container>
+</BaseLayout>

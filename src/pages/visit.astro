@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/Container.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import { getSite } from '../content/site';
+
+const site = getSite('zh');
+---
+<BaseLayout title="聚会信息" description="聚会时间、地点与第一次来访指引">
+  <Container class="py-14 sm:py-20">
+    <SectionTitle eyebrow="VISIT" title="欢迎参加我们的每周聚会" subtitle="我们期待与你相见。" />
+
+    <div class="mx-auto mt-12 grid max-w-5xl gap-6 lg:grid-cols-2">
+      <section class="rounded-3xl border border-black/10 bg-white/40 p-7 shadow-soft">
+        <h3 class="font-serif text-2xl text-ink-950">聚会时间</h3>
+        <div class="mt-5 space-y-3">
+          {site.weeklyMeetings.map((m) => (
+            <div class="rounded-2xl border border-black/5 bg-parchment-50 p-5">
+              <div class="font-medium text-ink-950">{m.title}</div>
+              <div class="mt-2 text-sm text-ink-900/70">{m.time}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="rounded-3xl border border-black/10 bg-white/40 p-7 shadow-soft">
+        <h3 class="font-serif text-2xl text-ink-950">地点与联系</h3>
+        <div class="mt-5 space-y-3 text-sm leading-7 text-ink-900/70">
+          <div>
+            <div class="font-medium text-ink-950">地址</div>
+            <div class="mt-1">{site.addressFull}</div>
+          </div>
+          <div>
+            <div class="font-medium text-ink-950">电话</div>
+            <a class="underline decoration-black/20 underline-offset-4 hover:decoration-black/50" href={site.phoneHref}>{site.phoneDisplay}</a>
+          </div>
+          <div>
+            <div class="font-medium text-ink-950">邮箱</div>
+            <a class="underline decoration-black/20 underline-offset-4 hover:decoration-black/50" href={`mailto:${site.email}`}>{site.email}</a>
+          </div>
+        </div>
+
+        <div class="mt-6 rounded-2xl border border-black/5 bg-parchment-50 p-5 text-sm text-ink-900/70">
+          <div class="font-medium text-ink-950">第一次来访小贴士</div>
+          <ul class="mt-3 list-disc space-y-2 pl-5">
+            <li>建议提前 10 分钟到达，方便问询与入座。</li>
+            <li>如需代祷或关怀，请在聚会后与同工联系。</li>
+            <li>欢迎带朋友与家人一同参加。</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </Container>
+</BaseLayout>

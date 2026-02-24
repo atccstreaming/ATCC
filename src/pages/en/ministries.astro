@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Container from '../../components/Container.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+
+const ministries = [
+  {
+    title: 'Worship & Music',
+    summary: 'Draw near to God and worship together.'
+  },
+  {
+    title: 'Discipleship & Care',
+    summary: 'Build lives with truth and walk together in love.'
+  },
+  {
+    title: 'Local Mission & Outreach',
+    summary: 'Serve the local Chinese community and share the gospel.'
+  }
+];
+---
+<BaseLayout title="Ministries" description="Ministries and how to get involved">
+  <Container class="py-14 sm:py-20">
+    <SectionTitle eyebrow="MINISTRIES" title="Ministries" subtitle="Serve together and grow in love." />
+
+    <div class="mx-auto mt-12 grid max-w-5xl gap-6 md:grid-cols-3">
+      {ministries.map((m) => (
+        <article class="rounded-3xl border border-black/10 bg-white/40 p-7 shadow-soft">
+          <h3 class="font-serif text-2xl text-ink-950">{m.title}</h3>
+          <p class="mt-4 text-sm leading-7 text-ink-900/70">{m.summary}</p>
+        </article>
+      ))}
+    </div>
+  </Container>
+</BaseLayout>

@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Container from '../../components/Container.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+import { getSite } from '../../content/site';
+
+const site = getSite('en');
+---
+<BaseLayout title="Visit" description="Service times, location, and what to expect">
+  <Container class="py-14 sm:py-20">
+    <SectionTitle eyebrow="VISIT" title="Plan a Visit" subtitle="We would love to meet you." />
+
+    <div class="mx-auto mt-12 grid max-w-5xl gap-6 lg:grid-cols-2">
+      <section class="rounded-3xl border border-black/10 bg-white/40 p-7 shadow-soft">
+        <h3 class="font-serif text-2xl text-ink-950">Service Times</h3>
+        <div class="mt-5 space-y-3">
+          {site.weeklyMeetings.map((m) => (
+            <div class="rounded-2xl border border-black/5 bg-parchment-50 p-5">
+              <div class="font-medium text-ink-950">{m.title}</div>
+              <div class="mt-2 text-sm text-ink-900/70">{m.time}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="rounded-3xl border border-black/10 bg-white/40 p-7 shadow-soft">
+        <h3 class="font-serif text-2xl text-ink-950">Location & Contact</h3>
+        <div class="mt-5 space-y-3 text-sm leading-7 text-ink-900/70">
+          <div>
+            <div class="font-medium text-ink-950">Address</div>
+            <div class="mt-1">{site.addressFull}</div>
+          </div>
+          <div>
+            <div class="font-medium text-ink-950">Phone</div>
+            <a class="underline decoration-black/20 underline-offset-4 hover:decoration-black/50" href={site.phoneHref}>{site.phoneDisplay}</a>
+          </div>
+          <div>
+            <div class="font-medium text-ink-950">Email</div>
+            <a class="underline decoration-black/20 underline-offset-4 hover:decoration-black/50" href={`mailto:${site.email}`}>{site.email}</a>
+          </div>
+        </div>
+
+        <div class="mt-6 rounded-2xl border border-black/5 bg-parchment-50 p-5 text-sm text-ink-900/70">
+          <div class="font-medium text-ink-950">What to Expect</div>
+          <ul class="mt-3 list-disc space-y-2 pl-5">
+            <li>Arrive about 10 minutes early to get settled.</li>
+            <li>If you need prayer or care, please talk to a church volunteer after service.</li>
+            <li>Feel free to invite friends and family.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </Container>
+</BaseLayout>

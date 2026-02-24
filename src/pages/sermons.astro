@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/Container.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+const sermons = [
+  {
+    title: '示例讲道：回到福音的中心',
+    speaker: '讲员：邹新华传道',
+    date: '2026-01-05',
+    verse: '太 9:37-38',
+    summary: '要收的庄稼多，做工的人少。让我们在呼召中被更新，进入禾场。'
+  },
+  {
+    title: '示例讲道：彼此相爱与群体建造',
+    speaker: '讲员：同工分享',
+    date: '2026-01-12',
+    verse: '约 13:34-35',
+    summary: '以基督的爱为生命核心，建立彼此牧养的关系。'
+  }
+];
+---
+<BaseLayout title="讲道" description="讲道信息与资源">
+  <Container class="py-14 sm:py-20">
+    <SectionTitle eyebrow="SERMONS" title="讲道" subtitle="信息与资源将持续更新。" />
+
+    <div class="mx-auto mt-6 flex max-w-4xl flex-wrap gap-3">
+      <a
+        href="https://www.youtube.com/@AgapeTriangleChineseChurch"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center rounded-full bg-cinnabar-500 px-5 py-2.5 text-sm font-medium text-white shadow-soft transition hover:bg-cinnabar-600"
+      >
+        访问 YouTube 频道
+      </a>
+    </div>
+
+    <div class="mx-auto mt-12 max-w-4xl space-y-4">
+      {sermons.map((s) => (
+        <article class="rounded-3xl border border-black/10 bg-white/40 p-7 shadow-soft">
+          <h3 class="font-serif text-2xl text-ink-950">{s.title}</h3>
+          <div class="mt-2 text-xs text-ink-900/60">{s.date} · {s.speaker} · {s.verse}</div>
+          <p class="mt-4 text-sm leading-7 text-ink-900/70">{s.summary}</p>
+        </article>
+      ))}
+    </div>
+  </Container>
+</BaseLayout>

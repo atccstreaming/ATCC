@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/Container.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import { getSite } from '../content/site';
+
+const site = getSite('zh');
+---
+<BaseLayout>
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(31,138,112,0.14),transparent_55%),radial-gradient(circle_at_bottom,rgba(226,61,40,0.10),transparent_60%)]"></div>
+    <Container class="relative py-16 sm:py-24">
+      <div class="grid items-center gap-10 lg:grid-cols-2">
+        <div>
+          <img
+            src="/logo.png"
+            alt="仁爱三角区教会 Logo"
+            class="mb-3 h-20 w-auto opacity-95 sm:h-24"
+            loading="eager"
+          />
+          <div class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/40 px-3 py-1 text-xs text-ink-900/70">
+            <span class="h-2 w-2 rounded-full bg-jade-500"></span>
+            欢迎参加我们的每周聚会
+          </div>
+          <h1 class="mt-6 font-serif text-[2.05rem] leading-[1.18] tracking-[0.02em] text-ink-950 sm:mt-7 sm:whitespace-nowrap sm:text-5xl sm:leading-[1.12]">
+            欢迎来到仁爱三角区教会
+          </h1>
+          <p class="mt-5 max-w-2xl text-[1.05rem] leading-8 text-ink-900/72">
+            {site.description}
+          </p>
+
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a
+              href="/visit"
+              class="rounded-full bg-ink-950 px-6 py-3 text-sm font-medium text-parchment-50 shadow-soft transition hover:bg-ink-900"
+            >
+              查看聚会信息
+            </a>
+            <a
+              href="/contact"
+              class="rounded-full border border-black/10 bg-white/40 px-6 py-3 text-sm font-medium text-ink-950 transition hover:bg-white/70"
+            >
+              联系我们
+            </a>
+          </div>
+        </div>
+
+        <div class="rounded-3xl border border-black/10 bg-white/40 p-6 shadow-soft backdrop-blur">
+          <div class="flex items-center justify-between">
+            <div class="font-medium text-ink-950">本周聚会</div>
+            <div class="text-xs text-ink-900/60">Raleigh, NC</div>
+          </div>
+          <div class="mt-4 space-y-3">
+            {site.weeklyMeetings.map((m) => (
+              <div class="rounded-2xl border border-black/5 bg-parchment-50 px-4 py-3">
+                <div class="text-sm font-medium text-ink-950">{m.title}</div>
+                <div class="mt-1 text-sm text-ink-900/70">{m.time}</div>
+              </div>
+            ))}
+          </div>
+          <div class="mt-6 rounded-2xl border border-black/5 bg-parchment-50 px-4 py-3 text-sm text-ink-900/70">
+            <div class="font-medium text-ink-950">地址</div>
+            <div class="mt-1">{site.addressLines.join(' ')}</div>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <section class="py-16 sm:py-20">
+    <Container>
+      <SectionTitle eyebrow="MISSION" title="我们的使命" subtitle={site.mission.intro} />
+
+      <div class="mx-auto mt-10 grid max-w-4xl gap-6 md:grid-cols-3">
+        {site.mission.bullets.map((b) => (
+          <div class="rounded-3xl border border-black/10 bg-white/40 p-6 shadow-soft">
+            <div class="h-10 w-10 rounded-2xl bg-jade-500/10 ring-1 ring-jade-500/20"></div>
+            <p class="mt-4 text-sm leading-7 text-ink-900/70">{b}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mx-auto mt-8 max-w-4xl rounded-3xl border border-black/10 bg-white/40 p-6 text-sm leading-7 text-ink-900/70 shadow-soft">
+        {site.mission.closing}
+      </div>
+    </Container>
+  </section>
+
+  <section class="py-16 sm:py-20">
+    <Container>
+      <SectionTitle eyebrow="LEADERSHIP" title="教会领袖" subtitle="认识我们的牧者与同工。" />
+
+      <div class="mx-auto mt-10 grid max-w-5xl gap-6 lg:grid-cols-3">
+        <div class="rounded-3xl border border-black/10 bg-white/40 p-6 shadow-soft lg:col-span-1">
+          <div class="flex items-center gap-4">
+            <img
+              src="/images/pastor.png"
+              alt={`${site.leader.name} 照片`}
+              class="h-16 w-16 rounded-2xl object-cover ring-1 ring-black/10"
+              loading="lazy"
+            />
+            <div class="h-12 w-12 rounded-2xl bg-cinnabar-500/10 ring-1 ring-cinnabar-500/20"></div>
+          </div>
+          <div class="mt-4 font-serif text-2xl text-ink-950">{site.leader.name}</div>
+          <div class="mt-2 text-sm text-ink-900/70">传道</div>
+          <a
+            class="mt-6 inline-flex rounded-full bg-cinnabar-500 px-4 py-2 text-sm font-medium text-white shadow-soft transition hover:bg-cinnabar-600"
+            href="/about"
+          >
+            查看更多
+          </a>
+        </div>
+
+        <div class="rounded-3xl border border-black/10 bg-white/40 p-6 shadow-soft lg:col-span-2">
+          <p class="text-sm leading-7 text-ink-900/70">{site.leader.bio[0]}</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <section class="py-16 sm:py-20">
+    <Container>
+      <div class="rounded-3xl border border-black/10 bg-ink-950 p-8 text-parchment-50 shadow-soft sm:p-12">
+        <div class="grid items-center gap-8 lg:grid-cols-2">
+          <div>
+            <div class="text-xs font-medium tracking-[0.2em] text-parchment-50/70">NEXT STEP</div>
+            <div class="mt-2 font-serif text-3xl tracking-wide">新朋友？我们为您指引！</div>
+            <div class="mt-3 text-sm leading-7 text-parchment-50/70">
+              包含聚会时间、地点、停车与儿童安排等常见问题。
+            </div>
+          </div>
+          <div class="flex flex-col gap-3 sm:flex-row sm:justify-end">
+            <a href="/visit" class="rounded-full bg-parchment-50 px-6 py-3 text-sm font-medium text-ink-950 transition hover:bg-white">
+              聚会信息
+            </a>
+            <a href="/give" class="rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-parchment-50 transition hover:bg-white/10">
+              支持事工
+            </a>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>

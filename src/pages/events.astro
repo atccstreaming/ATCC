@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/Container.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+const events = [
+  {
+    title: '周三祷告会',
+    when: '每周三 7:30 – 8:30pm',
+    where: '教会 / 线上（如有）',
+    summary: '同心祷告、彼此守望。'
+  },
+  {
+    title: '周五圣经学习分享会',
+    when: '每周五 7:30 – 9:00pm',
+    where: '教会',
+    summary: '查考圣经、彼此分享与代祷。'
+  }
+];
+---
+<BaseLayout title="活动" description="教会近期活动与安排">
+  <Container class="py-14 sm:py-20">
+    <SectionTitle eyebrow="EVENTS" title="活动" subtitle="欢迎参与教会生活，一同成长。" />
+
+    <div class="mx-auto mt-12 grid max-w-5xl gap-6 md:grid-cols-2">
+      {events.map((e) => (
+        <article class="rounded-3xl border border-black/10 bg-white/40 p-7 shadow-soft">
+          <h3 class="font-serif text-2xl text-ink-950">{e.title}</h3>
+          <div class="mt-3 space-y-1 text-sm text-ink-900/70">
+            <div><span class="font-medium text-ink-950">时间：</span>{e.when}</div>
+            <div><span class="font-medium text-ink-950">地点：</span>{e.where}</div>
+          </div>
+          <p class="mt-4 text-sm leading-7 text-ink-900/70">{e.summary}</p>
+        </article>
+      ))}
+    </div>
+  </Container>
+</BaseLayout>

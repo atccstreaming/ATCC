@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Container from '../../components/Container.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+---
+<BaseLayout title="Give" description="Support our mission in the Triangle">
+  <Container class="py-14 sm:py-20">
+    <SectionTitle eyebrow="GIVE" title="Support our mission" subtitle="Thank you for partnering with us in gospel ministry." />
+
+    <div class="mx-auto mt-12 grid max-w-5xl gap-6 lg:grid-cols-2">
+      <section class="rounded-3xl border border-black/10 bg-white/40 p-7 shadow-soft">
+        <h3 class="font-serif text-2xl text-ink-950">Giving</h3>
+        <p class="mt-4 text-sm leading-7 text-ink-900/70">
+          This page is a template. After you choose a giving provider (Zelle/PayPal/Stripe, etc.), replace the button link below.
+        </p>
+        <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+          <a href="#" class="rounded-full bg-cinnabar-500 px-6 py-3 text-center text-sm font-medium text-white shadow-soft transition hover:bg-cinnabar-600">Donate Now</a>
+          <a href="/en/contact" class="rounded-full border border-black/10 bg-white/40 px-6 py-3 text-center text-sm font-medium text-ink-950 transition hover:bg-white/70">Ask about giving</a>
+        </div>
+      </section>
+
+      <section class="rounded-3xl border border-black/10 bg-white/40 p-7 shadow-soft">
+        <h3 class="font-serif text-2xl text-ink-950">How gifts are used (sample)</h3>
+        <ul class="mt-5 list-disc space-y-2 pl-5 text-sm leading-7 text-ink-900/70">
+          <li>Local mission and outreach</li>
+          <li>Sunday services and fellowship</li>
+          <li>Care and shepherding</li>
+          <li>Facility and operations</li>
+        </ul>
+      </section>
+    </div>
+  </Container>
+</BaseLayout>

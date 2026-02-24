@@ -1,0 +1,55 @@
+---
+import Container from './Container.astro';
+import { getSite } from '../content/site';
+import { getLocaleFromPathname, type Locale } from '../i18n';
+const year = new Date().getFullYear();
+
+const current = Astro.url.pathname;
+const locale: Locale = getLocaleFromPathname(current);
+const site = getSite(locale);
+---
+<footer class="mt-16 border-t border-black/5 bg-parchment-50">
+  <Container class="py-10">
+    <div class="grid gap-8 md:grid-cols-3">
+      <div>
+        <div class="font-serif text-lg text-ink-950">{site.name}</div>
+        <div class="mt-2 text-sm text-ink-900/70">{site.description}</div>
+      </div>
+
+      <div class="text-sm">
+        <div class="font-medium text-ink-950">{locale === 'en' ? 'Weekly Gatherings' : '聚会时间'}</div>
+        <ul class="mt-2 space-y-1 text-ink-900/70">
+          {site.weeklyMeetings.map((m) => (
+            <li>
+              <span class="text-ink-950/80">{m.title}{locale === 'en' ? ': ' : '：'}</span>
+              {m.time}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="text-sm">
+        <div class="font-medium text-ink-950">{locale === 'en' ? 'Contact' : '联系方式'}</div>
+        <div class="mt-2 space-y-1 text-ink-900/70">
+          <div>{locale === 'en' ? 'Address: ' : '地址：'}{site.addressFull}</div>
+          <div>
+            {locale === 'en' ? 'Phone: ' : '电话：'}
+            <a class="underline decoration-black/20 underline-offset-4 hover:decoration-black/50" href={site.phoneHref}>{site.phoneDisplay}</a>
+          </div>
+          <div>
+            {locale === 'en' ? 'Email: ' : '邮箱：'}
+            <a class="underline decoration-black/20 underline-offset-4 hover:decoration-black/50" href={`mailto:${site.email}`}>{site.email}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 flex flex-col gap-2 border-t border-black/5 pt-6 text-xs text-ink-900/60 sm:flex-row sm:items-center sm:justify-between">
+      <div>Copyright © {year} {site.nameEn} - All Rights Reserved.</div>
+      <div class="flex gap-4">
+        <a class="hover:text-ink-950" href={locale === 'en' ? '/en/privacy-policy' : '/privacy-policy'}>Privacy Policy</a>
+        <a class="hover:text-ink-950" href={locale === 'en' ? '/en/terms-and-conditions' : '/terms-and-conditions'}>Terms and Conditions</a>
+      </div>
+    </div>
+  </Container>
+</footer>

@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/Container.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import { getSite } from '../content/site';
+
+const site = getSite('zh');
+---
+<BaseLayout title="联系" description="联系仁爱三角区华人教会">
+  <Container class="py-14 sm:py-20">
+    <SectionTitle eyebrow="CONTACT" title="Contact Us" subtitle="欢迎联系与代祷需要。" />
+
+    <div class="mx-auto mt-8 grid max-w-2xl gap-6">
+      <section class="rounded-3xl border border-black/10 bg-white/40 p-6 shadow-soft">
+        <h3 class="font-serif text-2xl text-ink-950">教会信息</h3>
+        <div class="mt-5 space-y-4 text-sm leading-7 text-ink-900/70">
+          <div>
+            <div class="font-medium text-ink-950">地址 Address</div>
+            <div class="mt-1">{site.addressFull}</div>
+          </div>
+          <div>
+            <div class="font-medium text-ink-950">电子邮件 Email</div>
+            <a class="underline decoration-black/20 underline-offset-4 hover:decoration-black/50" href={`mailto:${site.email}`}>{site.email}</a>
+          </div>
+          <div>
+            <div class="font-medium text-ink-950">电话 Phone</div>
+            <a class="underline decoration-black/20 underline-offset-4 hover:decoration-black/50" href={site.phoneHref}>{site.phoneDisplay}</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </Container>
+</BaseLayout>
