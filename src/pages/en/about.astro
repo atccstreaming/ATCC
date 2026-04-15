@@ -14,7 +14,7 @@ const site = getSite('en');
     <div class="mx-auto mt-12 max-w-4xl space-y-10">
       <section class="rounded-3xl border border-black/10 bg-white/40 p-7 shadow-soft">
         <h3 class="font-serif text-2xl text-ink-950">Photos</h3>
-        <div class="mt-5 grid gap-4 sm:grid-cols-2">
+        <div class="mt-5 grid gap-4 sm:grid-cols-3">
           <img
             src={withBasePath('/images/1449.jpg')}
             alt="Church photo"
@@ -24,6 +24,12 @@ const site = getSite('en');
           <img
             src={withBasePath('/images/1450.jpg')}
             alt="Church photo"
+            class="aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-black/10"
+            loading="lazy"
+          />
+          <img
+            src={withBasePath('/images/pastor.jpg')}
+            alt="Pastor photo"
             class="aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-black/10"
             loading="lazy"
           />
@@ -70,7 +76,7 @@ const site = getSite('en');
         <h3 class="font-serif text-2xl text-ink-950">Leadership</h3>
         <div class="mt-5 flex items-center gap-4">
           <img
-            src={withBasePath('/images/pastor.jpg')}
+            src={withBasePath('/images/pastor.png')}
             alt={`${site.leader.name} photo`}
             class="h-20 w-20 rounded-3xl object-cover ring-1 ring-black/10"
             loading="lazy"
