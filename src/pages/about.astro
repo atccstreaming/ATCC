@@ -13,6 +13,24 @@ const site = getSite('zh');
 
     <div class="mx-auto mt-12 max-w-4xl space-y-10">
       <section class="rounded-3xl border border-black/10 bg-white/40 p-7 shadow-soft">
+        <h3 class="font-serif text-2xl text-ink-950">照片</h3>
+        <div class="mt-5 grid gap-4 sm:grid-cols-2">
+          <img
+            src={withBasePath('/images/1449.jpg')}
+            alt="教会照片"
+            class="aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-black/10"
+            loading="lazy"
+          />
+          <img
+            src={withBasePath('/images/1450.jpg')}
+            alt="教会照片"
+            class="aspect-[4/3] w-full rounded-2xl object-cover ring-1 ring-black/10"
+            loading="lazy"
+          />
+        </div>
+      </section>
+
+      <section class="rounded-3xl border border-black/10 bg-white/40 p-7 shadow-soft">
         <h3 class="font-serif text-2xl text-ink-950">我们的使命</h3>
         <p class="mt-3 text-sm leading-7 text-ink-900/70">{site.mission.intro}</p>
         <ul class="mt-5 list-disc space-y-2 pl-5 text-sm leading-7 text-ink-900/70">
@@ -52,7 +70,7 @@ const site = getSite('zh');
         <h3 class="font-serif text-2xl text-ink-950">教会领袖</h3>
         <div class="mt-5 flex items-center gap-4">
           <img
-            src={withBasePath('/images/pastor.png')}
+            src={withBasePath('/images/pastor.jpg')}
             alt={`${site.leader.name} 照片`}
             class="h-20 w-20 rounded-3xl object-cover ring-1 ring-black/10"
             loading="lazy"
