@@ -17,11 +17,23 @@ import { withBasePath } from '../../i18n';
           class="mt-5 w-full rounded-2xl object-contain ring-1 ring-black/10 bg-white p-4"
           loading="lazy"
         />
-        <p class="mt-4 text-sm leading-7 text-ink-900/70">
-          You can give online via Zelle by scanning the QR code above or clicking the button below. For other giving options, please contact us.
-        </p>
-        <div class="mt-6 flex flex-col gap-3 sm:flex-row">
-          <a href="https://enroll.zellepay.com/qr-codes?data=ewogICJ0b2tlbiIgOiAicnV0aHp5bkBvdXRsb29rLmNvbSIsCiAgIm5hbWUiIDogIkFHQVBFIFRSSUFOR0xFIENISU5FU0UgQ0hVUkNIIiwKICAiYWN0aW9uIiA6ICJwYXltZW50Igp9" target="_blank" rel="noopener noreferrer" class="rounded-full bg-cinnabar-500 px-6 py-3 text-center text-sm font-medium text-white shadow-soft transition hover:bg-cinnabar-600">Donate via Zelle</a>
+        <div class="mt-5 rounded-2xl border border-black/5 bg-parchment-50 p-5">
+          <div class="text-sm font-medium text-ink-950">Zelle Recipient Info</div>
+          <div class="mt-2 text-sm leading-7 text-ink-900/70">
+            <div>Name: <span class="font-medium text-ink-950">AGAPE TRIANGLE CHINESE CHURCH</span></div>
+            <div>Email: <a href="mailto:ruthzyn@outlook.com" class="font-medium text-cinnabar-600 underline decoration-cinnabar-300 underline-offset-4">ruthzyn@outlook.com</a></div>
+          </div>
+        </div>
+        <div class="mt-4 text-sm leading-7 text-ink-900/70">
+          <p>How to give via Zelle:</p>
+          <ol class="mt-2 list-decimal space-y-1 pl-5">
+            <li>Open your banking app and find the Zelle transfer feature</li>
+            <li>Scan the QR code above, or manually enter the email address</li>
+            <li>Enter your donation amount and send</li>
+          </ol>
+          <p class="mt-3">For other giving options, please contact us.</p>
+        </div>
+        <div class="mt-6">
           <a href={withBasePath('/en/contact')} class="rounded-full border border-black/10 bg-white/40 px-6 py-3 text-center text-sm font-medium text-ink-950 transition hover:bg-white/70">Ask about giving</a>
         </div>
       </section>
