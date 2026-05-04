@@ -31,7 +31,7 @@ const site = getSite(locale);
       <div class="text-sm">
         <div class="font-medium text-ink-950">{locale === 'en' ? 'Contact' : '联系方式'}</div>
         <div class="mt-2 space-y-1 text-ink-900/70">
-          <div>{locale === 'en' ? 'Address: ' : '地址：'}{site.addressFull}</div>
+          <div>{locale === 'en' ? 'Address: ' : '地址：'}<a href="https://maps.google.com/?q=8509+Penny+Road,+Raleigh,+NC+27606" target="_blank" rel="noopener noreferrer" class="underline decoration-black/20 underline-offset-4 hover:decoration-black/50">{site.addressFull}</a></div>
           <div>
             {locale === 'en' ? 'Phone: ' : '电话：'}
             <a class="underline decoration-black/20 underline-offset-4 hover:decoration-black/50" href={site.phoneHref}>{site.phoneDisplay}</a>
