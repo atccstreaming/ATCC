@@ -18,10 +18,10 @@ import { withBasePath } from '../../i18n';
           loading="lazy"
         />
         <p class="mt-4 text-sm leading-7 text-ink-900/70">
-          This page is a template. After you choose a giving provider (Zelle/PayPal/Stripe, etc.), replace the button link below.
+          You can give online via Zelle by scanning the QR code above or clicking the button below. For other giving options, please contact us.
         </p>
         <div class="mt-6 flex flex-col gap-3 sm:flex-row">
-          <a href="#" class="rounded-full bg-cinnabar-500 px-6 py-3 text-center text-sm font-medium text-white shadow-soft transition hover:bg-cinnabar-600">Donate Now</a>
+          <a href="https://enroll.zellepay.com/qr-codes?data=ewogICJ0b2tlbiIgOiAicnV0aHp5bkBvdXRsb29rLmNvbSIsCiAgIm5hbWUiIDogIkFHQVBFIFRSSUFOR0xFIENISU5FU0UgQ0hVUkNIIiwKICAiYWN0aW9uIiA6ICJwYXltZW50Igp9" target="_blank" rel="noopener noreferrer" class="rounded-full bg-cinnabar-500 px-6 py-3 text-center text-sm font-medium text-white shadow-soft transition hover:bg-cinnabar-600">Donate via Zelle</a>
           <a href={withBasePath('/en/contact')} class="rounded-full border border-black/10 bg-white/40 px-6 py-3 text-center text-sm font-medium text-ink-950 transition hover:bg-white/70">Ask about giving</a>
         </div>
       </section>
