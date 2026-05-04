@@ -17,25 +17,25 @@ export const siteByLocale = {
     weeklyMeetings: [
       { title: '主日崇拜', time: '周日上午 11:00 至 12:20' },
       { title: '祷告会', time: '周三晚上 7:30 至 8:30' },
-      { title: '聖經學習分享會', time: '週五晚上 7:30 – 9:00' }
+      { title: '圣经学习分享会', time: '周五晚上 7:30 – 9:00' }
     ],
     leader: {
       name: '邹新华传道',
       role: '传道',
       bio: [
-        '我是2002年6月受洗歸在主的名下，妻子是2009年4月受洗，然而我們夫妻信主多年，卻曾長年蹉跎光陰，靈里軟弱，心中常常十分慚愧虧欠。然而，主的恩典從未離開我們，其間有好幾位的屬靈牧者、宣教士教導我們、引領我們。2021年聖誕節前夕，借著清晰的呼召，我來到北美求學。這條道路充滿挑戰與考驗，但每一步都看見主信實的同在。感謝神！2025年11月，我終於從神學院順利完成道學碩士（M.Div.）學業。這不是我們自己的成就，乃是主親自開路、供應、保守的結果。',
-        '如今，主再次清楚呼召我們：留在本地，致力於華人社區的福音宣教，建立一間以基督為中心的本土教會，拯救更多的靈魂。正如主耶穌所言：“要收的莊稼多，做工的人少。所以，你們當求莊稼的主打發工人出去收他的莊稼。”（太9:37-38）我們深知莊稼已經熟了，時候到了！求主大大興起我们這微小的家庭，也興起更多弟兄姊妹，與我們同心同行，一同進入這豐收的禾場。',
-        '我們有一女一兒，從小在教會長大，經歷了主日學、夏令營、青少年團契的澆灌，後來相繼受洗歸入主的名下。神更是使用他們，在教會中服事、在學校里作光作鹽，成為我們極大的安慰與鼓勵。這一切都是主的恩典，不是我們的功勞。我們全家都願繼續被主使用，成為祂手中的器皿。'
+        '我是2002年6月受洗归在主的名下，妻子是2009年4月受洗，然而我们夫妻信主多年，却曾长年蹉跎光阴，灵里软弱，心中常常十分惭愧亏欠。然而，主的恩典从未离开我们，其间有好几位属灵牧者、宣教士教导我们、引领我们。2021年圣诞节前夕，借着清晰的呼召，我来到北美求学。这条道路充满挑战与考验，但每一步都看见主信实的同在。感谢神！2025年11月，我终于从神学院顺利完成道学硕士（M.Div.）学业。这不是我们自己的成就，乃是主亲自开路、供应、保守的结果。',
+        '如今，主再次清楚呼召我们：留在本地，致力于华人社区的福音宣教，建立一间以基督为中心的本土教会，拯救更多的灵魂。正如主耶稣所言：“要收的庄稼多，做工的人少。所以，你们当求庄稼的主打发工人出去收他的庄稼。”（太9:37-38）我们深知庄稼已经熟了，时候到了！求主大大兴起我们这微小的家庭，也兴起更多弟兄姊妹，与我们同心同行，一同进入这丰收的禾场。',
+        '我们有一女一儿，从小在教会长大，经历了主日学、夏令营、青少年团契的浇灌，后来相继受洗归入主的名下。神更是使用他们，在教会中服事、在学校里作光作盐，成为我们极大的安慰与鼓励。这一切都是主的恩典，不是我们的功劳。我们全家都愿继续被主使用，成为祂手中的器皿。'
       ]
     },
     mission: {
-      intro: '在神的心意中，忠心參與屬神教會的建造，使主的身體被建立，使神的名得著榮耀。',
+      intro: '在神的心意中，忠心参与属神教会的建造，使主的身体被建立，使神的名得着荣耀。',
       bullets: [
-        '以生命建造生命、以真理建造群體；',
-        '在北卡三角區本地華人社區中傳揚福音、牧養靈魂、活出彼此相愛的見證；專注聖經的教導與講解，幫助信徒扎根真理、建立以基督為中心的群體生活；',
-        '順服聖靈的帶領，忠心回應神在這個時代給我們的本地宣教使命。'
+        '以生命建造生命、以真理建造群体；',
+        '在北卡三角区本地华人社区中传扬福音、牧养灵魂、活出彼此相爱的见证；专注圣经的教导与讲解，帮助信徒扎根真理、建立以基督为中心的群体生活；',
+        '顺服圣灵的带领，忠心回应神在这个时代给我们的本地宣教使命。'
       ],
-      closing: '教會不是人的事業，乃是神的工程；我們只是同工、管家與僕人，一切以“是否榮耀基督、是否合乎聖經”為最高檢驗標準。'
+      closing: '教会不是人的事业，乃是神的工程；我们只是同工、管家与仆人，一切以“是否荣耀基督、是否合乎圣经”为最高检验标准。'
     },
     purpose: {
       title: '彼此相爱、同心建造、本地宣教。',
@@ -46,7 +46,7 @@ export const siteByLocale = {
         },
         {
           title: '同心建造',
-          text: '在已立定的基督與聖經根基上，忠心參與神屬靈家室的建造，以真理和生命为核心，而非外在形式或個人成就。'
+          text: '在已立定的基督与圣经根基上，忠心参与神属灵家室的建造，以真理和生命为核心，而非外在形式或个人成就。'
         },
         {
           title: '本地宣教',
@@ -86,9 +86,9 @@ export const siteByLocale = {
       name: 'Preacher Xinhua Zou',
       role: 'Preacher',
       bio: [
-        'This is an English starter translation of the leader introduction. Replace with an official English bio if available.',
-        'God has called us to remain local and serve the Chinese community in the Triangle area with evangelism and discipleship.',
-        'Our family desires to continue being used by the Lord as His instruments.'
+        'I was baptized in June 2002, and my wife was baptized in April 2009. Although we have believed in the Lord for many years, we also recognize seasons of spiritual weakness and wasted time. Yet the Lord’s grace never departed from us. Through the teaching and guidance of faithful pastors and missionaries, God continued to lead us. Around Christmas 2021, through a clear calling, I came to North America for theological study. The road was full of challenges, but at every step we witnessed the Lord’s faithful presence. In November 2025, by God’s grace, I completed the Master of Divinity (M.Div.) program. This was not our own achievement, but the Lord’s provision, protection, and guidance.',
+        'Today, the Lord has called us again: to remain local, serve the Chinese community through gospel mission, and build a Christ-centered local church so that more souls may be saved. As Jesus said, “The harvest is plentiful, but the laborers are few; therefore pray earnestly to the Lord of the harvest to send out laborers into his harvest” (Matthew 9:37–38). We believe the harvest is ready and the time has come. May the Lord raise up our small family, along with more brothers and sisters, to enter this harvest field together.',
+        'We have one daughter and one son. They grew up in church, were nurtured through Sunday school, summer camps, and youth fellowship, and later were baptized into the name of the Lord. God has also used them to serve in church and be salt and light at school. All of this is the Lord’s grace, not our merit. Our whole family desires to continue being used by the Lord as vessels in His hands.'
       ]
     },
     mission: {
