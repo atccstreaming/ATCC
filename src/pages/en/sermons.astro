@@ -3,26 +3,60 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Container from '../../components/Container.astro';
 import SectionTitle from '../../components/SectionTitle.astro';
 
-const sermons = [
+const sundayWorship = [
   {
-    title: 'Sermon: Returning to the Center of the Gospel',
-    speaker: 'Speaker: Preacher Xinhua Zou',
-    date: '2026-01-05',
-    verse: 'Matt 9:37–38',
-    summary: 'The harvest is plentiful, but the laborers are few. Let us be renewed and sent into the harvest.'
+    title: 'Sunday Worship | May 3, 2026',
+    date: '2026-05-03',
+    summary: 'A life that is busy but not chaotic: finding rest in a frantic world.',
+    url: 'https://www.youtube.com/watch?v=ZSwdvef0uGA'
   },
   {
-    title: 'Sermon: Loving One Another and Building Together',
-    speaker: 'Speaker: Church Team',
-    date: '2026-01-12',
-    verse: 'John 13:34–35',
-    summary: 'Centered on Christ’s love, we grow in a community of mutual care.'
+    title: 'Sunday Worship | April 26, 2026',
+    date: '2026-04-26',
+    summary: 'From weakness to strength: Peter and the transformation of our lives.',
+    url: 'https://www.youtube.com/watch?v=IaVnGZdI-x8'
+  },
+  {
+    title: 'Sunday Worship | April 19, 2026',
+    date: '2026-04-19',
+    summary: 'Overcoming trials: identity, temptation, and grace.',
+    url: 'https://www.youtube.com/watch?v=Btta9fBqwec'
+  },
+  {
+    title: 'Sunday Worship | April 12, 2026',
+    date: '2026-04-12',
+    summary: 'The beginning of the gospel of Jesus Christ.',
+    url: 'https://www.youtube.com/watch?v=jq4TVfYuHto'
+  },
+  {
+    title: 'Sunday Worship | March 22, 2026',
+    date: '2026-03-22',
+    summary: 'The first need of life: encouragement and companionship.',
+    url: 'https://www.youtube.com/watch?v=H0EWzktRu3M'
+  },
+  {
+    title: 'Sunday Worship | March 15, 2026',
+    date: '2026-03-15',
+    summary: 'Sunday worship recording.',
+    url: 'https://www.youtube.com/watch?v=RIsRQw3grzI'
+  },
+  {
+    title: 'Sunday Worship | March 8, 2026',
+    date: '2026-03-08',
+    summary: 'Sunday worship recording.',
+    url: 'https://www.youtube.com/watch?v=I1Po0fnc2yM'
+  },
+  {
+    title: 'Sunday Worship | February 15, 2026',
+    date: '2026-02-15',
+    summary: 'Sunday message.',
+    url: 'https://www.youtube.com/watch?v=IwQL1Vblzlo'
   }
 ];
 ---
 <BaseLayout title="Sermons" description="Sermons and resources">
   <Container class="py-14 sm:py-20">
-    <SectionTitle eyebrow="SERMONS" title="Sermons" subtitle="Resources will continue to be updated." />
+    <SectionTitle eyebrow="SERMONS" title="Sermons" subtitle="Sunday worship and sermon resources will continue to be updated." />
 
     <div class="mx-auto mt-6 flex max-w-4xl flex-wrap gap-3">
       <a
@@ -35,14 +69,20 @@ const sermons = [
       </a>
     </div>
 
-    <div class="mx-auto mt-12 max-w-4xl space-y-4">
-      {sermons.map((s) => (
+    <div class="mx-auto mt-12 max-w-4xl">
+      <h2 class="font-serif text-3xl text-ink-950">Sunday Worship</h2>
+      <div class="mt-6 space-y-4">
+      {sundayWorship.map((s) => (
         <article class="rounded-3xl border border-black/10 bg-white/40 p-7 shadow-soft">
-          <h3 class="font-serif text-2xl text-ink-950">{s.title}</h3>
-          <div class="mt-2 text-xs text-ink-900/60">{s.date} · {s.speaker} · {s.verse}</div>
+          <div class="text-xs text-ink-900/60">{s.date}</div>
+          <h3 class="mt-2 font-serif text-2xl text-ink-950">{s.title}</h3>
           <p class="mt-4 text-sm leading-7 text-ink-900/70">{s.summary}</p>
+          <a href={s.url} target="_blank" rel="noopener noreferrer" class="mt-5 inline-flex rounded-full bg-ink-950 px-4 py-2 text-sm font-medium text-parchment-50 transition hover:bg-ink-900">
+            Watch on YouTube
+          </a>
         </article>
       ))}
+      </div>
     </div>
   </Container>
 </BaseLayout>
