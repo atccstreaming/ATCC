@@ -27,6 +27,11 @@ const site = getSite('en');
             <a class="underline decoration-black/20 underline-offset-4 hover:decoration-black/50" href={site.phoneHref}>{site.phoneDisplay}</a>
           </div>
         </div>
+        <div class="mt-6 grid gap-3 sm:grid-cols-3">
+          <a href="https://maps.google.com/?q=8509+Penny+Road,+Raleigh,+NC+27606" target="_blank" rel="noopener noreferrer" class="rounded-full bg-ink-950 px-4 py-2.5 text-center text-sm font-medium text-parchment-50 shadow-soft transition hover:bg-ink-900">Open Map</a>
+          <a href={site.phoneHref} class="rounded-full border border-black/10 bg-white/40 px-4 py-2.5 text-center text-sm font-medium text-ink-950 transition hover:bg-white/70">Call</a>
+          <a href={`mailto:${site.email}`} class="rounded-full border border-black/10 bg-white/40 px-4 py-2.5 text-center text-sm font-medium text-ink-950 transition hover:bg-white/70">Email</a>
+        </div>
       </section>
     </div>
   </Container>
