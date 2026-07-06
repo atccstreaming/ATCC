@@ -29,9 +29,16 @@ const sundayWorship = getSundayWorship('zh');
           <div class="text-xs text-ink-900/60">{s.date}</div>
           <h3 class="mt-2 font-serif text-2xl text-ink-950">{s.title}</h3>
           <p class="mt-4 text-sm leading-7 text-ink-900/70">{s.summary}</p>
-          <a href={s.url} target="_blank" rel="noopener noreferrer" class="mt-5 inline-flex rounded-full bg-ink-950 px-4 py-2 text-sm font-medium text-parchment-50 transition hover:bg-ink-900">
-            在 YouTube 观看
-          </a>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <a href={s.url} target="_blank" rel="noopener noreferrer" class="inline-flex rounded-full bg-ink-950 px-4 py-2 text-sm font-medium text-parchment-50 transition hover:bg-ink-900">
+              完整崇拜录像
+            </a>
+            {s.clip && (
+              <a href={s.clip.url} target="_blank" rel="noopener noreferrer" title={s.clip.title} class="inline-flex rounded-full border border-black/10 bg-white/40 px-4 py-2 text-sm font-medium text-ink-950 transition hover:bg-white/70">
+                浓缩短片
+              </a>
+            )}
+          </div>
         </article>
       ))}
       </div>
