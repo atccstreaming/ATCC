@@ -34,6 +34,7 @@ const socialImage = new URL(withBasePath('/logo.png'), Astro.site ?? Astro.url).
     <link rel="icon" href={withBasePath('/favicon.svg')} type="image/svg+xml" />
     <link rel="icon" href={withBasePath('/favicon.ico')} sizes="any" />
     <link rel="apple-touch-icon" href={withBasePath('/apple-touch-icon.png')} />
+    <link rel="manifest" href={withBasePath('/site.webmanifest')} />
     <title>{pageTitle}</title>
   </head>
   <body class="min-h-dvh">
@@ -41,7 +42,7 @@ const socialImage = new URL(withBasePath('/logo.png'), Astro.site ?? Astro.url).
       href="#main"
       class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-ink-950 focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-parchment-50"
     >
-      跳到主要内容
+      {locale === 'en' ? 'Skip to main content' : '跳到主要内容'}
     </a>
     <Header />
     <main id="main">
