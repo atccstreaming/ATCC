@@ -2,56 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Container from '../components/Container.astro';
 import SectionTitle from '../components/SectionTitle.astro';
-const sundayWorship = [
-  {
-    title: '主日崇拜 ｜ 2026年5月3日',
-    date: '2026-05-03',
-    summary: '忙而不乱的人生',
-    url: 'https://www.youtube.com/watch?v=ZSwdvef0uGA'
-  },
-  {
-    title: '主日崇拜 ｜ 2026年4月26日',
-    date: '2026-04-26',
-    summary: '由软弱到刚强：彼得与我们的生命翻转',
-    url: 'https://www.youtube.com/watch?v=IaVnGZdI-x8'
-  },
-  {
-    title: '主日崇拜 ｜ 2026年4月19日',
-    date: '2026-04-19',
-    summary: '在考验中得胜：身份、试探与恩典',
-    url: 'https://www.youtube.com/watch?v=Btta9fBqwec'
-  },
-  {
-    title: '主日崇拜 ｜ 2026年4月12日',
-    date: '2026-04-12',
-    summary: '耶稣基督福音的开始',
-    url: 'https://www.youtube.com/watch?v=jq4TVfYuHto'
-  },
-  {
-    title: '主日崇拜 ｜ 2026年3月22日',
-    date: '2026-03-22',
-    summary: '人生的第一需要：鼓励和陪伴',
-    url: 'https://www.youtube.com/watch?v=H0EWzktRu3M'
-  },
-  {
-    title: '主日崇拜 ｜ 2026年3月15日',
-    date: '2026-03-15',
-    summary: '主日崇拜录像',
-    url: 'https://www.youtube.com/watch?v=RIsRQw3grzI'
-  },
-  {
-    title: '主日崇拜 ｜ 2026年3月8日',
-    date: '2026-03-08',
-    summary: '主日崇拜录像',
-    url: 'https://www.youtube.com/watch?v=I1Po0fnc2yM'
-  },
-  {
-    title: '主日崇拜 ｜ 2026年2月15日',
-    date: '2026-02-15',
-    summary: '主日信息',
-    url: 'https://www.youtube.com/watch?v=IwQL1Vblzlo'
-  }
-];
+import { getSundayWorship } from '../content/sermons';
+
+const sundayWorship = getSundayWorship('zh');
 ---
 <BaseLayout title="讲道" description="讲道信息与资源">
   <Container class="py-14 sm:py-20">

@@ -2,57 +2,9 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Container from '../../components/Container.astro';
 import SectionTitle from '../../components/SectionTitle.astro';
+import { getSundayWorship } from '../../content/sermons';
 
-const sundayWorship = [
-  {
-    title: 'Sunday Worship | May 3, 2026',
-    date: '2026-05-03',
-    summary: 'A life that is busy but not chaotic: finding rest in a frantic world.',
-    url: 'https://www.youtube.com/watch?v=ZSwdvef0uGA'
-  },
-  {
-    title: 'Sunday Worship | April 26, 2026',
-    date: '2026-04-26',
-    summary: 'From weakness to strength: Peter and the transformation of our lives.',
-    url: 'https://www.youtube.com/watch?v=IaVnGZdI-x8'
-  },
-  {
-    title: 'Sunday Worship | April 19, 2026',
-    date: '2026-04-19',
-    summary: 'Overcoming trials: identity, temptation, and grace.',
-    url: 'https://www.youtube.com/watch?v=Btta9fBqwec'
-  },
-  {
-    title: 'Sunday Worship | April 12, 2026',
-    date: '2026-04-12',
-    summary: 'The beginning of the gospel of Jesus Christ.',
-    url: 'https://www.youtube.com/watch?v=jq4TVfYuHto'
-  },
-  {
-    title: 'Sunday Worship | March 22, 2026',
-    date: '2026-03-22',
-    summary: 'The first need of life: encouragement and companionship.',
-    url: 'https://www.youtube.com/watch?v=H0EWzktRu3M'
-  },
-  {
-    title: 'Sunday Worship | March 15, 2026',
-    date: '2026-03-15',
-    summary: 'Sunday worship recording.',
-    url: 'https://www.youtube.com/watch?v=RIsRQw3grzI'
-  },
-  {
-    title: 'Sunday Worship | March 8, 2026',
-    date: '2026-03-08',
-    summary: 'Sunday worship recording.',
-    url: 'https://www.youtube.com/watch?v=I1Po0fnc2yM'
-  },
-  {
-    title: 'Sunday Worship | February 15, 2026',
-    date: '2026-02-15',
-    summary: 'Sunday message.',
-    url: 'https://www.youtube.com/watch?v=IwQL1Vblzlo'
-  }
-];
+const sundayWorship = getSundayWorship('en');
 ---
 <BaseLayout title="Sermons" description="Sermons and resources">
   <Container class="py-14 sm:py-20">
