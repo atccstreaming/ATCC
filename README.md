@@ -37,7 +37,12 @@ npm run preview
 ## Updating sermon videos (most common task)
 
 Videos are uploaded to the YouTube channel
-[@AgapeTriangleChineseChurch](https://www.youtube.com/@AgapeTriangleChineseChurch).
+[ATCC 仁愛三角區華人教會](https://www.youtube.com/channel/UChNchT0M7AVIId48CS1mWBg)
+(channel ID `UChNchT0M7AVIId48CS1mWBg`). The previous channel,
+`@AgapeTriangleChineseChurch`, was taken down sometime before August 2026 — every
+video ID that pointed there now 404s. If sermon links break again, check whether the
+channel moved again before assuming a typo.
+
 Each Sunday usually gets a full worship recording (titled `主日崇拜 ｜ YYYY年M月D号`)
 plus a condensed highlights clip (浓缩短片) named after the message.
 
@@ -63,10 +68,17 @@ every deploy fails (GitHub tries to Jekyll-build the raw Astro source and errors
 Only the repository owner account can change this setting. This happened once in
 July 2026.
 
-## Status (as of 2026-07-06)
+## Status (as of 2026-08-30)
 
-- Sermon list is current through the **July 5, 2026** service; 13 Sundays have paired
-  highlights clips (Mar 8 and Feb 15 recordings have none).
+- The old YouTube channel (`@AgapeTriangleChineseChurch`) went down; every sermon link
+  on the site pointed to a dead video. Rebuilt the sermon list from the new channel
+  (see above), which only had 6 full recordings available: **June 28, July 19, July 26,
+  August 9, August 23, and August 30, 2026**. Everything before June 28 was removed
+  since no replacement video exists for those Sundays.
+- July 12, August 2, and August 16 have no full worship recording on the new channel
+  (only orphaned highlights clips with no obvious date match) and are not listed, per
+  the existing rule that a clip without a corresponding full recording isn't shown.
+  Worth asking the church whether those recordings exist anywhere.
 - Privacy policy and terms pages carry real content (replaced placeholders, July 2026);
   worth a review by the church.
 - Favicons, apple-touch-icon, web manifest icons, and sitemap.xml are in place; the old
