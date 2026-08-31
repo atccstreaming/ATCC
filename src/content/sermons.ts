@@ -22,8 +22,8 @@ export const sundayWorship: SermonEntry[] = [
     url: 'https://www.youtube.com/watch?v=Fn1miqVT1Qo',
     title: { zh: '主日崇拜 ｜ 2026年8月30日', en: 'Sunday Worship | August 30, 2026' },
     summary: {
-      zh: '让神的国显明',
-      en: 'Revealing the kingdom of God.'
+      zh: '让神的国显明：灯与种子',
+      en: 'Revealing the kingdom of God: the lamp and the seed.'
     },
     clip: {
       url: 'https://www.youtube.com/watch?v=uGt8_yxV3XE',
@@ -53,8 +53,8 @@ export const sundayWorship: SermonEntry[] = [
     url: 'https://www.youtube.com/watch?v=urz17OT0CBY',
     title: { zh: '主日崇拜 ｜ 2026年7月19日', en: 'Sunday Worship | July 19, 2026' },
     summary: {
-      zh: '园丁之旅',
-      en: "The gardener's journey."
+      zh: '园丁之旅：心灵的属灵诊断',
+      en: "The gardener's journey: a spiritual diagnosis of the heart."
     },
     clip: {
       url: 'https://www.youtube.com/watch?v=jwkT-dX7U_g',
