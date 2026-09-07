@@ -18,6 +18,19 @@ export interface SermonEntry {
 // Chinese and English sermon pages render from this list.
 export const sundayWorship: SermonEntry[] = [
   {
+    date: '2026-09-06',
+    url: 'https://www.youtube.com/watch?v=kcLmnALaN2k',
+    title: { zh: '主日崇拜 ｜ 2026年9月6日', en: 'Sunday Worship | September 6, 2026' },
+    summary: {
+      zh: '永活的盼望',
+      en: 'The everlasting hope.'
+    },
+    clip: {
+      url: 'https://www.youtube.com/watch?v=P9SQnjAglHg',
+      title: { zh: '永活的盼望：信息图文解析', en: 'The everlasting hope: an illustrated message recap' }
+    }
+  },
+  {
     date: '2026-08-30',
     url: 'https://www.youtube.com/watch?v=Fn1miqVT1Qo',
     title: { zh: '主日崇拜 ｜ 2026年8月30日', en: 'Sunday Worship | August 30, 2026' },
