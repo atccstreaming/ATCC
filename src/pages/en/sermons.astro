@@ -2,9 +2,9 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Container from '../../components/Container.astro';
 import SectionTitle from '../../components/SectionTitle.astro';
-import { getSundayWorship } from '../../content/sermons';
+import { getSundayWorshipByMonth } from '../../content/sermons';
 
-const sundayWorship = getSundayWorship('en');
+const groups = getSundayWorshipByMonth('en');
 ---
 <BaseLayout title="Sermons" description="Sermons and resources">
   <Container class="py-14 sm:py-20">
@@ -23,25 +23,43 @@ const sundayWorship = getSundayWorship('en');
 
     <div class="mx-auto mt-12 max-w-4xl">
       <h2 class="font-serif text-3xl text-ink-950">Sunday Worship</h2>
-      <div class="mt-6 space-y-4">
-      {sundayWorship.map((s) => (
-        <article class="rounded-3xl border border-black/10 bg-white/40 p-7 shadow-soft">
-          <div class="text-xs text-ink-900/60">{s.date}</div>
-          <h3 class="mt-2 font-serif text-2xl text-ink-950">{s.title}</h3>
-          <p class="mt-4 text-sm leading-7 text-ink-900/70">{s.summary}</p>
-          <div class="mt-5 flex flex-wrap gap-3">
-            <a href={s.url} target="_blank" rel="noopener noreferrer" class="inline-flex rounded-full bg-ink-950 px-4 py-2 text-sm font-medium text-parchment-50 transition hover:bg-ink-900">
-              Full Service Recording
-            </a>
-            {s.clip && (
-              <a href={s.clip.url} target="_blank" rel="noopener noreferrer" title={s.clip.title} class="inline-flex rounded-full border border-black/10 bg-white/40 px-4 py-2 text-sm font-medium text-ink-950 transition hover:bg-white/70">
-                Sermon Highlights
-              </a>
-            )}
+
+      {groups.map((group) => (
+        <div class="mt-8 first:mt-6">
+          <div class="text-xs font-medium tracking-[0.15em] text-ink-900/40">{group.label}</div>
+          <div class="mt-2 divide-y divide-black/10 border-y border-black/10">
+            {group.items.map((s) => (
+              <div class="flex flex-col gap-2 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+                <div class="min-w-0 sm:flex sm:items-baseline sm:gap-4">
+                  <span class="block shrink-0 text-xs tabular-nums text-ink-900/50 sm:w-16">{s.day}</span>
+                  <h3 class="truncate font-serif text-base text-ink-950 sm:text-lg">{s.summary}</h3>
+                </div>
+                <div class="flex flex-shrink-0 flex-wrap gap-2">
+                  <a
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center rounded-full bg-ink-950 px-3 py-1 text-xs font-medium text-parchment-50 transition hover:bg-ink-900"
+                  >
+                    Full Recording
+                  </a>
+                  {s.clips.map((clip, i) => (
+                    <a
+                      href={clip.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={clip.title}
+                      class="inline-flex items-center rounded-full border border-black/10 bg-white/40 px-3 py-1 text-xs font-medium text-ink-950 transition hover:bg-white/70"
+                    >
+                      Clip{s.clips.length > 1 ? ` ${i + 1}` : ''}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
-        </article>
+        </div>
       ))}
-      </div>
     </div>
   </Container>
 </BaseLayout>

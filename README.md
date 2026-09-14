@@ -52,24 +52,44 @@ time. If sermon links break again, don't assume a typo or a dead channel — che
 looked dead before may have come back.
 
 When matching a highlights clip to its Sunday, don't rely on upload-order adjacency
-alone — clips and full recordings aren't always adjacent in the uploads list. Confirm
-by comparing each full recording's actual description text (visible via
-`curl -s "https://www.youtube.com/watch?v=<id>" | grep -o '"shortDescription":"[^"]*"'`)
-against candidate clip titles. This caught a real mismatch once: the site's July 19,
-2026 entry was paired with a clip for an unrelated, unidentified Sunday.
+alone — clips and full recordings aren't always adjacent in the uploads list, and a
+gap Sunday (no full recording at all) can leave an orphaned clip sitting next to an
+unrelated week's entry. Confirm with actual metadata instead:
+
+- Compare each full recording's description text (`curl -s
+  "https://www.youtube.com/watch?v=<id>" | grep -o '"shortDescription":"[^"]*"'`)
+  against candidate clip titles.
+- When descriptions are empty or ambiguous, compare `publishDate` instead (`curl -s
+  "https://www.youtube.com/watch?v=<id>" | grep -o '"publishDate":"[^"]*"'`) — a clip
+  published the same week as a full recording belongs to it, regardless of where it
+  sits in upload order (uploads happen in batches, out of calendar order).
+
+This caught two real bugs when rebuilding the list in September 2026: the site's July
+19 entry was paired with a clip for an unrelated, unidentified Sunday; and an
+adjacency-only guess would have wrongly assigned a clip actually published the week of
+March 8 to February 22 instead. `publishDate` matching also revealed that April 26,
+2026 genuinely got **two** highlight clips (both published the same day) — hence
+`clips` being an array, not a single optional field.
 
 Each Sunday usually gets a full worship recording (titled `主日崇拜 ｜ YYYY年M月D号`)
-plus a condensed highlights clip (浓缩短片) named after the message.
+plus a condensed highlights clip (浓缩短片) named after the message — occasionally more
+than one clip, rarely (so far) zero.
 
 To add a Sunday, prepend one entry to `sundayWorship` in `src/content/sermons.ts`
 (newest first):
 
 - `url` — the full worship recording; `summary` — the message title (usually in the
   video's YouTube description), with an English translation.
-- `clip` — the matching highlights video, if one exists. Match clips to Sundays by
-  publish date and title.
+- `clips` — an array of matching highlights videos (usually zero or one entry; see
+  above for when there's more than one). Match by description or publish date, not
+  position.
 - Entry titles use `日` (e.g. `2026年7月5日`), not the `号` used on YouTube.
-- Highlights clips that have **no** corresponding full worship recording are not listed.
+- Highlights clips that have **no** corresponding full worship recording are not
+  listed. Known gap Sundays with no full recording at all (as of 2026-09-13): March 1,
+  March 29, April 5, August 16, 2026.
+- The sermons pages group entries by month (`getSundayWorshipByMonth` in
+  `sermons.ts`) for a more compact layout — no action needed when adding an entry,
+  grouping is automatic from each entry's `date`.
 
 ## Deployment
 
@@ -90,20 +110,27 @@ July 2026.
   September 6 and August 30 full recordings and the August 30, September 6, and July
   19 highlight clips had all gone private. Meanwhile the *original* channel
   (`UC5YlBdzDiyQZmmMvbHmH-rg`), previously thought dead, turned out to be back with
-  its full history intact (see above). Rebuilt the sermon list from that channel,
-  which now has full recordings back through
-  **June 28, 2026** (further back than before, but per user decision the list still
-  starts at June 28 rather than extending to the new channel's full archive, which
-  goes back to mid-February 2026).
-- July 5, July 12, and August 2 now have full recordings on the new channel (they
-  didn't before) and were added. August 16 still has no full recording anywhere and
-  remains unlisted. August 23 has no equivalent on the new channel, so that entry still
-  points at the old channel (`h4CX9fytNsk`), which is still playable — worth rechecking
-  next time links break.
-- Found and fixed a mismatched clip: the site's July 19 entry was paired with a clip
-  for a different, unidentified Sunday (probably a leftover from an earlier rebuild).
-  The correct clip was found by matching each full recording's description text
-  against candidate clip titles rather than trusting upload-order adjacency.
+  its full history intact (see above). Rebuilt the sermon list from that channel.
+- The list now runs the full available archive, **February 15 through September 13,
+  2026** (25 Sundays) — initially rebuilt only back to June 28, but extended to the
+  full archive per a follow-up request. July 5, July 12, and August 2 have full
+  recordings on the new channel that didn't exist before and were added; so do all of
+  February–June. March 1, March 29, April 5, and August 16 still have no full
+  recording anywhere and remain unlisted (April 26 has an orphaned clip from one of
+  these gap Sundays' near-neighbors — see the description/publish-date matching notes
+  above). August 23 has no equivalent on the new channel, so that entry still points
+  at the old channel (`h4CX9fytNsk`), which is still playable — worth rechecking next
+  time links break.
+- Found and fixed two mismatched clips from a previous rebuild: the July 19 entry was
+  paired with a clip for an unrelated Sunday, and a naive adjacency guess for the
+  archive extension would have wrongly assigned a clip actually published the week of
+  March 8 to February 22 instead. See the matching method notes above.
+- The sermon list UI was redesigned for compactness (25 entries no longer fit
+  comfortably as large cards): grouped by month, one slim row per Sunday instead of a
+  padded card, with the day number/abbreviation on the left and small pill links
+  (full recording + clip(s)) on the right. `sermons.ts`'s `clips` is now an array per
+  entry (was a single optional `clip`) to support Sundays with more than one recap
+  clip.
 - Privacy policy and terms pages carry real content (replaced placeholders, July 2026);
   worth a review by the church.
 - Favicons, apple-touch-icon, web manifest icons, and sitemap.xml are in place; the old
