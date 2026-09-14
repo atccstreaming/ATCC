@@ -37,11 +37,26 @@ npm run preview
 ## Updating sermon videos (most common task)
 
 Videos are uploaded to the YouTube channel
-[ATCC 仁愛三角區華人教會](https://www.youtube.com/channel/UChNchT0M7AVIId48CS1mWBg)
-(channel ID `UChNchT0M7AVIId48CS1mWBg`). The previous channel,
-`@AgapeTriangleChineseChurch`, was taken down sometime before August 2026 — every
-video ID that pointed there now 404s. If sermon links break again, check whether the
-channel moved again before assuming a typo.
+[Agape Triangle Chinese Church 仁爱三角区华人教会](https://www.youtube.com/channel/UC5YlBdzDiyQZmmMvbHmH-rg)
+(channel ID `UC5YlBdzDiyQZmmMvbHmH-rg`, handle `@AgapeTriangleChineseChurch`). This is
+actually the **original** channel: it appeared dead in August 2026 (every video 404'd
+via oEmbed), so the church switched to an interim channel
+(`UChNchT0M7AVIId48CS1mWBg`, "ATCC 仁愛三角區華人教會") — but as of September 2026 the
+original channel is back, with its full upload history intact back to February 2026
+(more than the interim channel ever had), plus new uploads through September 13. The
+interim channel's individual videos have meanwhile started going private one at a
+time. If sermon links break again, don't assume a typo or a dead channel — check
+**both** channel IDs' RSS feeds
+(`https://www.youtube.com/feeds/videos.xml?channel_id=<id>`) or uploads playlists
+(`https://www.youtube.com/playlist?list=UU<id-without-UC-prefix>`); a channel that
+looked dead before may have come back.
+
+When matching a highlights clip to its Sunday, don't rely on upload-order adjacency
+alone — clips and full recordings aren't always adjacent in the uploads list. Confirm
+by comparing each full recording's actual description text (visible via
+`curl -s "https://www.youtube.com/watch?v=<id>" | grep -o '"shortDescription":"[^"]*"'`)
+against candidate clip titles. This caught a real mismatch once: the site's July 19,
+2026 entry was paired with a clip for an unrelated, unidentified Sunday.
 
 Each Sunday usually gets a full worship recording (titled `主日崇拜 ｜ YYYY年M月D号`)
 plus a condensed highlights clip (浓缩短片) named after the message.
@@ -68,17 +83,27 @@ every deploy fails (GitHub tries to Jekyll-build the raw Astro source and errors
 Only the repository owner account can change this setting. This happened once in
 July 2026.
 
-## Status (as of 2026-08-30)
+## Status (as of 2026-09-13)
 
-- The old YouTube channel (`@AgapeTriangleChineseChurch`) went down; every sermon link
-  on the site pointed to a dead video. Rebuilt the sermon list from the new channel
-  (see above), which only had 6 full recordings available: **June 28, July 19, July 26,
-  August 9, August 23, and August 30, 2026**. Everything before June 28 was removed
-  since no replacement video exists for those Sundays.
-- July 12, August 2, and August 16 have no full worship recording on the new channel
-  (only orphaned highlights clips with no obvious date match) and are not listed, per
-  the existing rule that a clip without a corresponding full recording isn't shown.
-  Worth asking the church whether those recordings exist anywhere.
+- The channel the church was using since late August
+  (`UChNchT0M7AVIId48CS1mWBg`) started losing individual videos to "private" — the
+  September 6 and August 30 full recordings and the August 30, September 6, and July
+  19 highlight clips had all gone private. Meanwhile the *original* channel
+  (`UC5YlBdzDiyQZmmMvbHmH-rg`), previously thought dead, turned out to be back with
+  its full history intact (see above). Rebuilt the sermon list from that channel,
+  which now has full recordings back through
+  **June 28, 2026** (further back than before, but per user decision the list still
+  starts at June 28 rather than extending to the new channel's full archive, which
+  goes back to mid-February 2026).
+- July 5, July 12, and August 2 now have full recordings on the new channel (they
+  didn't before) and were added. August 16 still has no full recording anywhere and
+  remains unlisted. August 23 has no equivalent on the new channel, so that entry still
+  points at the old channel (`h4CX9fytNsk`), which is still playable — worth rechecking
+  next time links break.
+- Found and fixed a mismatched clip: the site's July 19 entry was paired with a clip
+  for a different, unidentified Sunday (probably a leftover from an earlier rebuild).
+  The correct clip was found by matching each full recording's description text
+  against candidate clip titles rather than trusting upload-order adjacency.
 - Privacy policy and terms pages carry real content (replaced placeholders, July 2026);
   worth a review by the church.
 - Favicons, apple-touch-icon, web manifest icons, and sitemap.xml are in place; the old
