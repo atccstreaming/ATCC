@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Container from '../components/Container.astro';
 import SectionTitle from '../components/SectionTitle.astro';
+import { withBasePath } from '../i18n';
 const ministries = [
   {
     title: '敬拜与诗歌',
@@ -19,15 +20,20 @@ const ministries = [
 ---
 <BaseLayout title="事工" description="教会事工与参与方式">
   <Container class="py-14 sm:py-20">
-    <SectionTitle eyebrow="MINISTRIES" title="事工" subtitle="一起参与服事，在爱中建造。" />
+    <SectionTitle as="h1" eyebrow="MINISTRIES" title="事工" subtitle="一起参与服事，在爱中建造。" />
 
     <div class="mx-auto mt-12 grid max-w-5xl gap-6 md:grid-cols-3">
       {ministries.map((m) => (
-        <article class="rounded-3xl border border-black/10 bg-white/40 p-7 shadow-soft">
-          <h3 class="font-serif text-2xl text-ink-950">{m.title}</h3>
-          <p class="mt-4 text-sm leading-7 text-ink-900/70">{m.summary}</p>
+        <article class="card p-7">
+          <h2 class="font-serif text-2xl text-ink-950">{m.title}</h2>
+          <p class="mt-4 body-text">{m.summary}</p>
         </article>
       ))}
+    </div>
+
+    <div class="mx-auto mt-12 max-w-5xl text-center">
+      <p class="body-text">想参与服事？欢迎联系我们。</p>
+      <a href={withBasePath('/contact')} class="btn btn-dark btn-sm mt-4">联系我们</a>
     </div>
   </Container>
 </BaseLayout>

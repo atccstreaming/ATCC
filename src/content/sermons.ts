@@ -414,12 +414,21 @@ export function getSundayWorship(locale: Locale) {
       ? new Intl.DateTimeFormat('zh-CN', { day: 'numeric', timeZone: 'UTC' })
       : new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
 
+  const fullDateFormat = new Intl.DateTimeFormat(locale === 'zh' ? 'zh-CN' : 'en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'UTC'
+  });
+
   return sundayWorship.map((s) => {
     const [year, month, day] = s.date.split('-').map(Number);
-    const dayLabel = dayFormat.format(new Date(Date.UTC(year, month - 1, day)));
+    const asDate = new Date(Date.UTC(year, month - 1, day));
+    const dayLabel = dayFormat.format(asDate);
     return {
       date: s.date,
       day: dayLabel,
+      dateLabel: fullDateFormat.format(asDate),
       url: s.url,
       title: s.title[locale],
       summary: s.summary[locale],

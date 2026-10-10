@@ -7,7 +7,10 @@ const base = {
   addressFull: '8509 Penny Road, Raleigh, NC 27606, USA',
   phoneDisplay: '626-591-6623',
   phoneHref: 'tel:6265916623',
-  email: 'calebzxh@gmail.com'
+  phoneE164: '+16265916623',
+  email: 'calebzxh@gmail.com',
+  mapsUrl: 'https://maps.google.com/?q=8509+Penny+Road,+Raleigh,+NC+27606',
+  youtubeUrl: 'https://www.youtube.com/@AgapeTriangleChineseChurch'
 } as const;
 
 export const siteByLocale = {
@@ -15,9 +18,9 @@ export const siteByLocale = {
     ...base,
     description: '在神的心意中，忠心参与属神教会的建造，使主的身体被建立，使神的名得着荣耀。',
     weeklyMeetings: [
-      { title: '主日崇拜', time: '周日上午 11:00 至 12:20' },
-      { title: '祷告会', time: '周三晚上 7:30 至 8:30' },
-      { title: '圣经学习分享会', time: '周五晚上 7:30 – 9:00' }
+      { title: '主日崇拜', time: '周日上午 11:00 至 12:20', day: 'Sunday', opens: '11:00', closes: '12:20' },
+      { title: '祷告会', time: '周三晚上 7:30 至 8:30', day: 'Wednesday', opens: '19:30', closes: '20:30' },
+      { title: '圣经学习分享会', time: '周五晚上 7:30 – 9:00', day: 'Friday', opens: '19:30', closes: '21:00' }
     ],
     leader: {
       name: '邹新华传道',
@@ -31,8 +34,8 @@ export const siteByLocale = {
     mission: {
       intro: '在神的心意中，忠心参与属神教会的建造，使主的身体被建立，使神的名得着荣耀。',
       bullets: [
-        '以生命建造生命、以真理建造群体；',
-        '在北卡三角区本地华人社区中传扬福音、牧养灵魂、活出彼此相爱的见证；专注圣经的教导与讲解，帮助信徒扎根真理、建立以基督为中心的群体生活；',
+        '以生命建造生命、以真理建造群体。',
+        '在北卡三角区本地华人社区中传扬福音、牧养灵魂、活出彼此相爱的见证；专注圣经的教导与讲解，帮助信徒扎根真理、建立以基督为中心的群体生活。',
         '顺服圣灵的带领，忠心回应神在这个时代给我们的本地宣教使命。'
       ],
       closing: '教会不是人的事业，乃是神的工程；我们只是同工、管家与仆人，一切以“是否荣耀基督、是否合乎圣经”为最高检验标准。'
@@ -78,9 +81,9 @@ export const siteByLocale = {
     description:
       'Faithfully participating in God’s work of building His church, so that the body of Christ is established and God’s name is glorified.',
     weeklyMeetings: [
-      { title: 'Sunday Worship', time: 'Sundays 11:00am – 12:20pm' },
-      { title: 'Prayer Meeting', time: 'Wednesdays 7:30pm – 8:30pm' },
-      { title: 'Bible Study & Sharing', time: 'Fridays 7:30pm – 9:00pm' }
+      { title: 'Sunday Worship', time: 'Sundays 11:00am – 12:20pm', day: 'Sunday', opens: '11:00', closes: '12:20' },
+      { title: 'Prayer Meeting', time: 'Wednesdays 7:30pm – 8:30pm', day: 'Wednesday', opens: '19:30', closes: '20:30' },
+      { title: 'Bible Study & Sharing', time: 'Fridays 7:30pm – 9:00pm', day: 'Friday', opens: '19:30', closes: '21:00' }
     ],
     leader: {
       name: 'Preacher Xinhua Zou',

@@ -8,29 +8,29 @@ const site = getSite('zh');
 ---
 <BaseLayout title="联系" description="联系仁爱三角区华人教会">
   <Container class="py-14 sm:py-20">
-    <SectionTitle eyebrow="CONTACT" title="Contact Us" subtitle="欢迎联系与代祷需要。" />
+    <SectionTitle as="h1" eyebrow="CONTACT" title="联系我们" subtitle="欢迎联系与代祷需要。" />
 
     <div class="mx-auto mt-8 grid max-w-2xl gap-6">
-      <section class="rounded-3xl border border-black/10 bg-white/40 p-6 shadow-soft">
-        <h3 class="font-serif text-2xl text-ink-950">教会信息</h3>
-        <div class="mt-5 space-y-4 text-sm leading-7 text-ink-900/70">
+      <section class="card p-6">
+        <h2 class="font-serif text-2xl text-ink-950">教会信息</h2>
+        <div class="mt-5 space-y-4 body-text">
           <div>
             <div class="font-medium text-ink-950">地址 Address</div>
-            <a href="https://maps.google.com/?q=8509+Penny+Road,+Raleigh,+NC+27606" target="_blank" rel="noopener noreferrer" class="mt-1 block underline decoration-black/20 underline-offset-4 hover:decoration-black/50">{site.addressFull}</a>
+            <a href={site.mapsUrl} target="_blank" rel="noopener noreferrer" class="mt-1 block link">{site.addressFull}</a>
           </div>
           <div>
             <div class="font-medium text-ink-950">电子邮件 Email</div>
-            <a class="underline decoration-black/20 underline-offset-4 hover:decoration-black/50" href={`mailto:${site.email}`}>{site.email}</a>
+            <a class="link" href={`mailto:${site.email}`}>{site.email}</a>
           </div>
           <div>
             <div class="font-medium text-ink-950">电话 Phone</div>
-            <a class="underline decoration-black/20 underline-offset-4 hover:decoration-black/50" href={site.phoneHref}>{site.phoneDisplay}</a>
+            <a class="link" href={site.phoneHref}>{site.phoneDisplay}</a>
           </div>
         </div>
         <div class="mt-6 grid gap-3 sm:grid-cols-3">
-          <a href="https://maps.google.com/?q=8509+Penny+Road,+Raleigh,+NC+27606" target="_blank" rel="noopener noreferrer" class="rounded-full bg-ink-950 px-4 py-2.5 text-center text-sm font-medium text-parchment-50 shadow-soft transition hover:bg-ink-900">打开地图</a>
-          <a href={site.phoneHref} class="rounded-full border border-black/10 bg-white/40 px-4 py-2.5 text-center text-sm font-medium text-ink-950 transition hover:bg-white/70">拨打电话</a>
-          <a href={`mailto:${site.email}`} class="rounded-full border border-black/10 bg-white/40 px-4 py-2.5 text-center text-sm font-medium text-ink-950 transition hover:bg-white/70">发送邮件</a>
+          <a href={site.mapsUrl} target="_blank" rel="noopener noreferrer" class="btn btn-dark">打开地图</a>
+          <a href={site.phoneHref} class="btn btn-light">拨打电话</a>
+          <a href={`mailto:${site.email}`} class="btn btn-light">发送邮件</a>
         </div>
       </section>
     </div>

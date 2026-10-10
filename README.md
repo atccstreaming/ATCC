@@ -25,6 +25,26 @@ npm run build
 npm run preview
 ```
 
+## Design conventions
+
+- Shared look lives in `src/styles/global.css` as a few component classes — use them
+  instead of repeating long utility strings: `.card` / `.card-inset` (surfaces),
+  `.body-text` (16px reading text), `.btn` + `.btn-dark` / `.btn-light` / `.btn-accent`
+  (buttons), `.link`, `.eyebrow`.
+- Every page needs a Chinese version in `src/pages/` **and** an English mirror in
+  `src/pages/en/` — keep them in step.
+- Page titles use `<SectionTitle as="h1" …>`; sections within a page use `h2`.
+- Meeting times are structured data in `site.ts` (`weeklyMeetings`: display `time` plus
+  `day`/`opens`/`closes`). The visible schedule and the search-engine structured data
+  (JSON-LD in `BaseLayout.astro`) both read from it, so edit times in one place.
+- The site deliberately loads nothing from third parties (no Google Fonts, embedded
+  maps, or analytics), which is what the Privacy Policy page promises. Keep it that way
+  or update the policy.
+- Accent buttons use `cinnabar-600` (not 500) so white text passes WCAG AA contrast.
+- `public/og-image.png` (1200×630) is the link-preview image for social sharing; it is a
+  static render of the church name + logo, so regenerate it only if the name or logo
+  changes.
+
 ## Where content lives
 
 - `src/content/site.ts` — church info shared across pages: name, address, phone, email,

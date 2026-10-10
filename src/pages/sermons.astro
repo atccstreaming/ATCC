@@ -8,21 +8,21 @@ const groups = getSundayWorshipByMonth('zh');
 ---
 <BaseLayout title="讲道" description="讲道信息与资源">
   <Container class="py-14 sm:py-20">
-    <SectionTitle eyebrow="SERMONS" title="讲道" subtitle="主日崇拜与讲道资源将持续更新。" />
+    <SectionTitle as="h1" eyebrow="SERMONS" title="讲道" subtitle="主日崇拜与讲道资源将持续更新。" />
 
-    <div class="mx-auto mt-6 flex max-w-4xl flex-wrap gap-3">
-      <a
-        href="https://www.youtube.com/@AgapeTriangleChineseChurch"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center justify-center rounded-full bg-cinnabar-500 px-5 py-2.5 text-sm font-medium text-white shadow-soft transition hover:bg-cinnabar-600"
-      >
-        访问 YouTube 频道
-      </a>
-    </div>
 
     <div class="mx-auto mt-12 max-w-4xl">
-      <h2 class="font-serif text-3xl text-ink-950">主日崇拜</h2>
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <h2 class="font-serif text-3xl text-ink-950">主日崇拜</h2>
+        <a
+          href="https://www.youtube.com/@AgapeTriangleChineseChurch"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-accent btn-sm"
+        >
+          访问 YouTube 频道
+        </a>
+      </div>
 
       {groups.map((group) => (
         <div class="mt-8 first:mt-6">

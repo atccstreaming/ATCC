@@ -6,8 +6,12 @@
   color-scheme: light;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
-  @apply bg-parchment-50 text-ink-900;
+  @apply bg-parchment-50 text-ink-900 antialiased;
   background-image:
     radial-gradient(circle at 20% 10%, rgba(31, 138, 112, 0.08), transparent 55%),
     radial-gradient(circle at 80% 90%, rgba(226, 61, 40, 0.06), transparent 60%),
@@ -18,10 +22,55 @@ body {
   background-position: center, center, center, center;
 }
 
-.panel {
-  @apply bg-white/50 backdrop-blur border border-black/10 shadow-soft;
-}
-
 ::selection {
   background: rgba(226, 61, 40, 0.18);
+}
+
+/* Visible keyboard focus for links, buttons and the mobile menu. */
+:focus-visible {
+  outline: 2px solid theme('colors.cinnabar.600');
+  outline-offset: 3px;
+  border-radius: 0.5rem;
+}
+
+@layer components {
+  /* Surfaces */
+  .card {
+    @apply rounded-3xl border border-black/10 bg-white/60 shadow-soft;
+  }
+  .card-inset {
+    @apply rounded-2xl border border-black/5 bg-parchment-50;
+  }
+
+  /* Body copy: 16px with generous leading, for comfortable reading of Chinese text. */
+  .body-text {
+    @apply text-base leading-[1.9] text-ink-900/80;
+  }
+
+  /* Text links inside content */
+  .link {
+    @apply underline decoration-black/25 underline-offset-4 transition hover:decoration-black/60;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium transition;
+  }
+  .btn-sm {
+    @apply px-4 py-2;
+  }
+  .btn-dark {
+    @apply bg-ink-950 text-parchment-50 shadow-soft hover:bg-ink-900;
+  }
+  .btn-light {
+    @apply border border-black/10 bg-white/60 text-ink-950 hover:bg-white;
+  }
+  .btn-accent {
+    @apply bg-cinnabar-600 text-white shadow-soft hover:bg-cinnabar-700;
+  }
+
+  /* Small label above headings */
+  .eyebrow {
+    @apply text-xs font-medium tracking-[0.2em] text-cinnabar-600;
+  }
 }

@@ -1,8 +1,10 @@
 ---
-const { eyebrow, title, subtitle } = Astro.props;
+// `as="h1"` for a page's main title; sections within a page keep the default h2.
+const { eyebrow, title, subtitle, as: Heading = 'h2' } = Astro.props;
 ---
 <div class="mx-auto max-w-2xl text-center">
-  {eyebrow ? <div class="text-xs font-medium tracking-[0.2em] text-cinnabar-600">{eyebrow}</div> : null}
-  <h2 class="mt-2 font-serif text-3xl tracking-wide text-ink-950 sm:text-4xl">{title}</h2>
-  {subtitle ? <p class="mt-3 text-sm leading-7 text-ink-900/70">{subtitle}</p> : null}
+  {eyebrow ? <div class="eyebrow">{eyebrow}</div> : null}
+  <Heading class="mt-2 font-serif text-3xl tracking-wide text-ink-950 sm:text-4xl">{title}</Heading>
+  <div class="mx-auto mt-4 h-px w-12 bg-cinnabar-500/60"></div>
+  {subtitle ? <p class="mt-4 text-base leading-8 text-ink-900/70">{subtitle}</p> : null}
 </div>

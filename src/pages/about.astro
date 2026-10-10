@@ -9,11 +9,11 @@ const site = getSite('zh');
 ---
 <BaseLayout title="关于我们">
   <Container class="py-14 sm:py-20">
-    <SectionTitle eyebrow="ABOUT" title="关于我们" subtitle={site.description} />
+    <SectionTitle as="h1" eyebrow="ABOUT" title="关于我们" subtitle="认识我们的使命、信仰与领袖。" />
 
     <div class="mx-auto mt-12 max-w-4xl space-y-10">
-      <section class="rounded-3xl border border-black/10 bg-white/40 p-7 shadow-soft">
-        <h3 class="font-serif text-2xl text-ink-950">照片</h3>
+      <section class="card p-7">
+        <h2 class="font-serif text-2xl text-ink-950">教会生活</h2>
         <div class="mt-5 grid gap-4 sm:grid-cols-3">
           <img
             src={withBasePath('/images/1449.jpg')}
@@ -36,44 +36,44 @@ const site = getSite('zh');
         </div>
       </section>
 
-      <section class="rounded-3xl border border-black/10 bg-white/40 p-7 shadow-soft">
-        <h3 class="font-serif text-2xl text-ink-950">我们的使命</h3>
-        <p class="mt-3 text-sm leading-7 text-ink-900/70">{site.mission.intro}</p>
-        <ul class="mt-5 list-disc space-y-2 pl-5 text-sm leading-7 text-ink-900/70">
+      <section class="card p-7">
+        <h2 class="font-serif text-2xl text-ink-950">我们的使命</h2>
+        <p class="mt-3 body-text">{site.mission.intro}</p>
+        <ul class="mt-5 list-disc space-y-2 pl-5 body-text">
           {site.mission.bullets.map((b) => (
             <li>{b}</li>
           ))}
         </ul>
-        <p class="mt-5 text-sm leading-7 text-ink-900/70">{site.mission.closing}</p>
+        <p class="mt-5 body-text">{site.mission.closing}</p>
       </section>
 
-      <section class="rounded-3xl border border-black/10 bg-white/40 p-7 shadow-soft">
-        <h3 class="font-serif text-2xl text-ink-950">我们的宗旨</h3>
-        <p class="mt-3 text-sm leading-7 text-ink-900/70">{site.purpose.title}</p>
+      <section class="card p-7">
+        <h2 class="font-serif text-2xl text-ink-950">我们的宗旨</h2>
+        <p class="mt-3 body-text">{site.purpose.title}</p>
         <div class="mt-6 grid gap-5 md:grid-cols-3">
           {site.purpose.items.map((it) => (
-            <div class="rounded-2xl border border-black/5 bg-parchment-50 p-5">
+            <div class="card-inset p-5">
               <div class="font-medium text-ink-950">{it.title}</div>
-              <div class="mt-2 text-sm leading-7 text-ink-900/70">{it.text}</div>
+              <div class="mt-2 body-text">{it.text}</div>
             </div>
           ))}
         </div>
       </section>
 
-      <section class="rounded-3xl border border-black/10 bg-white/40 p-7 shadow-soft">
-        <h3 class="font-serif text-2xl text-ink-950">信仰告白</h3>
+      <section class="card p-7">
+        <h2 class="font-serif text-2xl text-ink-950">信仰告白</h2>
         <div class="mt-6 space-y-4">
           {site.beliefs.map((b) => (
-            <div class="rounded-2xl border border-black/5 bg-parchment-50 p-5">
+            <div class="card-inset p-5">
               <div class="font-medium text-ink-950">{b.title}</div>
-              <div class="mt-2 text-sm leading-7 text-ink-900/70">{b.text}</div>
+              <div class="mt-2 body-text">{b.text}</div>
             </div>
           ))}
         </div>
       </section>
 
-      <section class="rounded-3xl border border-black/10 bg-white/40 p-7 shadow-soft">
-        <h3 class="font-serif text-2xl text-ink-950">教会领袖</h3>
+      <section class="card p-7">
+        <h2 class="font-serif text-2xl text-ink-950">教会领袖</h2>
         <div class="mt-5 flex items-center gap-4">
           <img
             src={withBasePath('/images/pastor.png')}
@@ -88,7 +88,7 @@ const site = getSite('zh');
         </div>
         <div class="mt-4 space-y-4">
           {site.leader.bio.map((p) => (
-            <p class="text-sm leading-7 text-ink-900/70">{p}</p>
+            <p class="body-text">{p}</p>
           ))}
         </div>
       </section>
