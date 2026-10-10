@@ -21,6 +21,51 @@ export interface SermonEntry {
 // Chinese and English sermon pages render from this list.
 export const sundayWorship: SermonEntry[] = [
   {
+    date: '2026-10-04',
+    url: 'https://www.youtube.com/watch?v=b53vjjbk4H4',
+    title: { zh: '主日崇拜 ｜ 2026年10月4日', en: 'Sunday Worship | October 4, 2026' },
+    summary: {
+      zh: '被接纳与珍惜',
+      en: 'Being accepted and treasured.'
+    },
+    clips: [
+      {
+        url: 'https://www.youtube.com/watch?v=ahnK_ieYaCc',
+        title: { zh: '图解分析：被接纳与珍惜', en: 'Illustrated analysis: being accepted and treasured' }
+      }
+    ]
+  },
+  {
+    date: '2026-09-27',
+    url: 'https://www.youtube.com/watch?v=mPZ40B9t6FU',
+    title: { zh: '主日崇拜 ｜ 2026年9月27日', en: 'Sunday Worship | September 27, 2026' },
+    summary: {
+      zh: '熟悉的危险：我们是如何错失真正伟大的',
+      en: 'The familiar danger: how we miss what is truly great.'
+    },
+    clips: [
+      {
+        url: 'https://www.youtube.com/watch?v=y4Yd3bEgrps',
+        title: { zh: '熟悉的危险：我们是如何错失真正伟大的', en: 'The familiar danger: how we miss what is truly great' }
+      }
+    ]
+  },
+  {
+    date: '2026-09-20',
+    url: 'https://www.youtube.com/watch?v=pA09e9AhamA',
+    title: { zh: '主日崇拜 ｜ 2026年9月20日', en: 'Sunday Worship | September 20, 2026' },
+    summary: {
+      zh: '当人没有办法的时候',
+      en: 'When there is nothing a person can do.'
+    },
+    clips: [
+      {
+        url: 'https://www.youtube.com/watch?v=76HRtvoD1N8',
+        title: { zh: '三个法则：胜过人类的无能为力', en: 'Three principles: overcoming human helplessness' }
+      }
+    ]
+  },
+  {
     date: '2026-09-13',
     url: 'https://www.youtube.com/watch?v=WVt28gHxYJk',
     title: { zh: '主日崇拜 ｜ 2026年9月13日', en: 'Sunday Worship | September 13, 2026' },
@@ -354,12 +399,6 @@ export const sundayWorship: SermonEntry[] = [
         }
       }
     ]
-  },
-  {
-    date: '2026-02-22',
-    url: 'https://www.youtube.com/watch?v=hGMbis4Idgk',
-    title: { zh: '主日崇拜 ｜ 2026年2月22日', en: 'Sunday Worship | February 22, 2026' },
-    summary: { zh: '主日崇拜录像', en: 'Sunday worship recording.' }
   },
   {
     date: '2026-02-15',
