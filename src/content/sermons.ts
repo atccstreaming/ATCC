@@ -21,6 +21,21 @@ export interface SermonEntry {
 // Chinese and English sermon pages render from this list.
 export const sundayWorship: SermonEntry[] = [
   {
+    date: '2026-10-18',
+    url: 'https://www.youtube.com/watch?v=cJP5td-DTq8',
+    title: { zh: '主日崇拜 ｜ 2026年10月18日', en: 'Sunday Worship | October 18, 2026' },
+    summary: {
+      zh: '摆脱被绑架的人生',
+      en: 'Breaking free from a life held hostage.'
+    },
+    clips: [
+      {
+        url: 'https://www.youtube.com/watch?v=8iF0K1JIgCY',
+        title: { zh: '摆脱被绑架的人生', en: 'Breaking free from a life held hostage' }
+      }
+    ]
+  },
+  {
     date: '2026-10-11',
     url: 'https://www.youtube.com/watch?v=zBjIJ5Dsmq8',
     title: { zh: '主日崇拜 ｜ 2026年10月11日', en: 'Sunday Worship | October 11, 2026' },
